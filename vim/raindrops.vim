@@ -1,0 +1,1 @@
+/home/ash/.vim/colors/raindrops.vim

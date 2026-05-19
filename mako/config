@@ -1,0 +1,12 @@
+max-history=3
+font=JetBrains Nerd Font
+text-color=#FFD87F
+background-color=#000000
+border-color=#e34b49
+text-color=#70A3B5
+border-radius=0
+default-timeout=4000
+icons=1
+anchor=top-center
+text-alignment=center
+

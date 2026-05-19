@@ -1,0 +1,23 @@
+* {
+  // ANSI colors
+  black: #0D0F11;
+  black-hl: #34383C;
+  red: #E36A5F;
+  red-hl: #FF8B7B;
+  green:  #A8DD70;
+  green-hl: #C7F090;
+  yellow: #FFD87F;
+  yellow-hl: #FFE9A5;
+  blue:  #5CAFE0;
+  blue-hl: #7ACFFF;
+  magenta:  #D27AD8;
+  magenta-hl: #E4A0F0;
+  cyan:  #4DD6DD;
+  cyan-hl: #6DEFFF;
+  white:  #F6EFEA;
+  white-hl: #FFFFFF;
+  text: #F8F1EE;
+  base: #1c1f23;
+}
+
+
