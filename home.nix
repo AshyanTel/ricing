@@ -1,0 +1,138 @@
+{ config, lib, pkgs, self, ... }:
+let
+configPath = ./config;
+dotfilesDir = "${config.home.homeDirectory}/dots";
+configDir = builtins.attrNames (builtins.readDir configPath);
+in
+{
+    home = {
+        username = "ash";
+        homeDirectory = "/home/ash";
+        stateVersion = "26.05";
+        packages =  [
+            pkgs.libsForQt5.qtstyleplugin-kvantum
+            pkgs.kdePackages.qtstyleplugin-kvantum
+            pkgs.catppuccin-kvantum
+
+            pkgs.neovim
+            pkgs.tree-sitter
+            pkgs.gcc
+            pkgs.lua-language-server
+            pkgs.jdt-language-server
+            pkgs.clang-tools
+            pkgs.rust-analyzer
+            pkgs.nixd
+            pkgs.fzf
+            pkgs.ripgrep
+            pkgs.nodejs
+            pkgs.cargo
+            pkgs.rustc
+            
+
+            (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
+            (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
+            (pkgs.callPackage "${self}/pkgs/rarsm.nix" { })
+            (pkgs.callPackage "${self}/pkgs/bluej.nix" { })
+        ];
+        pointerCursor = {
+            name = "Bibata-Modern-Classic";
+            package = pkgs.bibata-cursors;
+            size = 20;
+            gtk.enable = true;
+            x11.enable = true;
+        };
+
+        sessionVariables = {
+            EDITOR = "nvim";
+        };
+    };
+
+
+    home.file.".config/user".source = ./user.png;
+    # home.file.".vim/autoload/plug.vim".source = "${pkgs.vimPlugins.vim-plug}/plug.vim";
+
+    xdg.configFile = lib.genAttrs configDir (name : {
+            source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/config/${name}";
+            });
+
+    xdg.desktopEntries.rars = {
+        name = "RARS";
+        exec = "rars";
+        icon = "utilities-terminal";
+        comment = "RISC-V Assembler and Runtime Simulator";
+        categories = [ "Development" ];
+    };
+
+    programs = {
+# Enable home manager it self.. trust...
+        home-manager.enable = true;
+# Git config.
+        git = {
+            enable = true;
+            settings = {
+                user = {
+                    email = "auxencemirliaz@ashyantel.dev";
+                    name = "ash";
+                };
+                core.editor = "nvim";
+                init.defaultBranch = "main";
+                alias = {
+                    adog = "log --all --decorate --oneline --graph";
+                };
+            };
+        };
+        # vim = {
+        #     enable = true;  
+        #     extraConfig = builtins.readFile ./vim/vimrc.vim;
+        # };
+        quickshell = {
+            enable = true;
+
+        };
+    };
+
+    catppuccin = {
+        enable = true;
+        autoEnable = true;
+        flavor = "mocha";
+        accent = "mauve";
+    };
+
+    gtk = {
+        enable = true;
+        theme = {
+            name = "catppuccin-mocha-mauve-standard";
+            package = pkgs.catppuccin-gtk.override {
+                accents = [ "mauve" ];
+                size = "standard";
+                tweaks = [ ];
+                variant = "mocha";
+            };
+        };
+
+        gtk3.extraConfig = {
+            gtk-application-prefer-dark-theme = 1;
+        };
+        gtk4.extraConfig = {
+            gtk-application-prefer-dark-theme = 1;
+        };
+
+        cursorTheme = {
+            name = "Bibata-Modern-Classic";
+            package = pkgs.bibata-cursors;
+            size = 20;
+        };
+    };
+
+    dconf.enable = true;
+    dconf.settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        gtk-theme = "catppuccin-mocha-mauve-standard";
+    };
+
+    qt = {
+        enable = true;
+        platformTheme.name = "gtk3";
+        style.name = "kvantum";
+    };
+}

@@ -1,0 +1,215 @@
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color mantle #181825;
+@define-color base #1e1e2e;
+@define-color crust #11111b;
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+
+@define-color panel rgba(30, 30, 46, 1);
+@define-color panel-border rgba(17, 17, 27, 1);
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-size: 12px;
+}
+
+.modules-center {
+  background: @panel;
+  border: 1px solid @panel-border;
+  border-radius: 999px;
+  margin: 2px 0 0 0;
+  padding: 1px;
+}
+
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+button {
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
+}
+
+button:hover {
+    background: transparent;
+}
+
+#custom-perf,
+#custom-notifs,
+#network,
+#pulseaudio,
+#battery,
+#bluetooth,
+#clock {
+    background: transparent;
+    border: 0;
+    padding: 0 10px;
+    margin: 0 0 0 3px;
+    color: @text;
+}
+
+#workspaces:hover,
+#custom-perf:hover,
+#custom-notifs:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#bluetooth:hover,
+#clock:hover {
+    color: @panel;
+    border-radius: 999px;
+}
+
+#workspaces button {
+    background: @mantle;
+    color: @subtext0;
+    padding: 0 5px;
+    border-radius: 999px;
+    border-color: transparent; 
+}
+
+#workspaces button:not(:first-child) {
+    margin: 0 0 0 3px;
+}
+
+
+#workspaces button.active {
+    color: @red;
+    background: @mantle;
+    border-radius: 999px;
+}
+
+#workspaces button.active:hover {
+    background: @red;
+    color: @mantle;
+}
+
+#workspaces button:hover {
+    color: @crust;
+    background: @red;
+}
+
+#custom-perf {
+    color: @peach;
+}
+
+#custom-perf:hover {
+    background: @peach;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#pulseaudio:hover {
+    background: @yellow;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @green;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        color: @text;
+    }
+}
+
+#battery:hover {
+    color: @panel;
+    background: @green;
+}
+
+
+#bluetooth {
+    color: @teal;
+}
+
+#bluetooth:hover {
+    background: @teal
+}
+
+#network {
+    color: @sky;
+}
+
+#network:hover{
+  background: @sky;
+}
+
+#clock {
+    color: @sapphire;
+}
+
+#clock:hover {
+    background: @sapphire;
+}
+
+#custom-notifs {
+    color: @mauve;
+}
+
+#custom-notifs:hover {
+    background: @mauve;
+}
+
+tooltip {
+    background: @base;
+    border: 2px solid @crust;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: @text;
+    padding: 3px 15px;
+}
+
+#workspaces,
+#custom-perf,
+#custom-notifs,
+#network,
+#pulseaudio,
+#battery,
+#clock,
+#workspaces button,
+#custom-perf label,
+#network label,
+#pulseaudio label,
+#battery label,
+#clock label {
+    transition: none;
+}
+
+

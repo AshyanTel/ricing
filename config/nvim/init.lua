@@ -1,0 +1,7 @@
+require("options")
+require("keymaps")
+require("autocmds")
+require("plugins")
+require("spell")
+require("markdown")
+require("lsp")
