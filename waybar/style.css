@@ -70,7 +70,6 @@ Workspace
 */
 #workspaces {
     color: @accent-left;
-
 }
 
 #media {
@@ -105,7 +104,6 @@ Workspace
 #network {
     transition: none;
     color: @accent-right;
-
 }
 
 #bluetooth {
@@ -116,37 +114,31 @@ Workspace
 #backlight {
     transition: none;
     color: @accent-right;
-
 }
 
 #pulseaudio {
     transition: none;
     color: @accent-right;
-
 }
 
 #clock {
     transition: none;
     color: @accent-center;
-
 }
 
 #cpu {
     transition: none;
     color: @accent-left;
-
 }
 
 #memory {
     transition: none;
     color: @accent-left;
-
 }
 
 #battery {
     transition: none;
     color: @accent-left;
-
 }
 
 #battery.charging, #battery.plugged {
@@ -155,8 +147,7 @@ Workspace
 }
 
 #battery.critical:not(.charging) {
-    background-color: @accent-left;
-    color: @white;
+    color: @accent-left;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -168,9 +159,8 @@ Workspace
 
 
 @keyframes blink {
-    to {
-        background-color:rgba(28,31,35,153); 
-        color: #E50000;
+    to { 
+        color: @white;
     }
 }
 
@@ -179,19 +169,16 @@ Workspace
 #tray {
     transition: none;
     color: @accent-left;
-
 }
 
 #custom-launcher {
     transition: none;
     color: @accent-left;
-
 }
 
 #custom-power {
     transition: none;
     color: @accent-right;
-
 }
 
 #custom-wallpaper {
@@ -203,7 +190,6 @@ Workspace
 #custom-updates {
     transition: none;
     color: @accent;
-
 }
 
 #custom-wayweather {

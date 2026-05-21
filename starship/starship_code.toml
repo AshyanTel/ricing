@@ -187,3 +187,6 @@ blue = '#4BD6EA'
 yellow = '#ffff00'
 green = '#20FB9E'
 magenta = '#ff2bd6'
+
+[cmake]
+symbol = ' '

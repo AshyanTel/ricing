@@ -179,3 +179,5 @@ style = 'red bold'
 format = '[@](blue bold)[$hostname]($style)[ in ](white)'
 ssh_only = false
 
+[cmake]
+symbol = ' '

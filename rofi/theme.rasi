@@ -4,11 +4,11 @@
   foreground:                   @text; 
   background:                   @base;
 
-  lightfg:                      @green;
+  lightfg:                      @blue;
   lightbg:                      @base;
   
   background-color:             transparent;
-  border-color:                 @white; 
+  border-color:                 @red; 
   spacing:                      4;
   separatorcolor:               @foreground;
 
@@ -16,7 +16,7 @@
   normal-background:            transparent;
   urgent-foreground:            @red;
   urgent-background:            @background;
-  active-foreground:            @green;
+  active-foreground:            @red;
   active-background:            @background;
 
   selected-normal-foreground:   @lightbg;
@@ -24,7 +24,7 @@
   selected-urgent-foreground:   @background;
   selected-urgent-background:   @red;
   selected-active-foreground:   @background;
-  selected-active-background:   @green;
+  selected-active-background:   @blue;
  
   alternate-normal-foreground:  @foreground; 
   alternate-normal-background:  transparent;
@@ -34,8 +34,8 @@
   alternate-active-background:  @lightbg;
   
   //Entries
-  entry:                        @green-hl;
-  entry-ph:                     @green;
+  entry:                        @blue-hl;
+  entry-ph:                     @blue;
 }
 element {
     padding: 3px 10px;
