@@ -2,13 +2,13 @@
   // ANSI colors
   black: #0D0F11;
   black-hl: #34383C;
-  red: #e34b49;
+  red: #ecb869;
   red-hl: #ef6663;
   green:  #A8DD70;
   green-hl: #C7F090;
   yellow: #FFD87F;
   yellow-hl: #FFE9A5;
-  blue:  #70a3b5;
+  blue:  #ed6d41;
   blue-hl: #b4d2de;
   magenta:  #D27AD8;
   magenta-hl: #E4A0F0;

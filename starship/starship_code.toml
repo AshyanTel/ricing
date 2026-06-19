@@ -5,6 +5,7 @@ palette = 'ash'
 format = """
 $username\
 $hostname\
+$shell\
 $localip\
 $shlvl\
 $singularity\
@@ -95,7 +96,6 @@ $status\
 $os\
 $container\
 $netns\
-$shell\
 $line_break\
 $character"""
 
@@ -124,8 +124,8 @@ time_range = '00:00:00-23:59:59'
 style = 'green bold dimmed'
 
 [character]
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+success_symbol = '[\$](bold green)'
+error_symbol = '[#](bold red)'
 
 [username]
 style_user = 'red bold'
@@ -190,3 +190,13 @@ magenta = '#ff2bd6'
 
 [cmake]
 symbol = ' '
+
+[shell]
+bash_indicator = 'bash'
+zsh_indicator = 'zsh'
+fish_indicator = 'fish'
+format = '[with](white) [$indicator]($style) '
+style = 'purple bold'
+disabled = false
+
+

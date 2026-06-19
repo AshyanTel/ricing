@@ -4,6 +4,7 @@ follow_symlinks = true
 format = """
 $username\
 $hostname\
+$shell\
 $localip\
 $shlvl\
 $singularity\
@@ -94,7 +95,6 @@ $status\
 $os\
 $container\
 $netns\
-$shell\
 $line_break\
 $character"""
 
@@ -105,7 +105,7 @@ symbol = ' '
 
 [character]
 success_symbol = '[\$](bold green)'
-error_symbol = '[\$](bold red)'
+error_symbol = '[#](bold red)'
 vimcmd_symbol = "[<](bold green)"
 vimcmd_visual_symbol = "[<](bold yellow)"
 vimcmd_replace_symbol = "[<](bold purple)"
@@ -443,6 +443,14 @@ symbol = "rs "
 
 [scala]
 symbol = "scala "
+
+[shell]
+bash_indicator = 'bash'
+zsh_indicator = 'zsh'
+fish_indicator = 'fish'
+format = '[with](white) [$indicator]($style) '
+style = 'dimmed purple bold'
+disabled = false
 
 [shlvl]
 symbol = "shlvl "

@@ -13,17 +13,14 @@
     "custom/ldivider",
     "bluetooth"
   ],
-  "modules-center" : [
-    "clock",
-    "custom/divider",
-    "custom/wayweather"
-  ],
+  "modules-center": ["clock", "custom/divider", "custom/wayweather"],
   "modules-right": [
     "tray",
     "custom/rdivider",
     "backlight",
     "custom/rdivider",
     "pulseaudio",
+    "custom/microphone",
     "custom/rdivider",
     "network#vpn",
     "custom/rdivider",
@@ -31,7 +28,7 @@
     "custom/rdivider",
     "custom/power"
   ],
-  
+
   "custom/ldivider": {
     "format": "/",
     "tooltip": false
@@ -44,38 +41,45 @@
     "format": "\\",
     "tooltip": false
   },
-  
+
+  "custom/microphone": {
+      "exec": "~/ricing/waybar/micro.sh",
+      "interval": 1,
+      "return-type": "json",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
+
   "pulseaudio": {
     "tooltip": false,
     "scroll-step": 5,
     "format": "{volume}% {icon}",
     "format-muted": "0%  ",
-    "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right":"pavucontrol",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
     "format-icons": {
       "default": [" ", " ", " "]
     }
   },
-  
+
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {
-      "active": " ",  // Filled dot for active workspace
+      "active": " ", // Filled dot for active workspace
       "default": " ", // Hollow dot for occupied workspace
-      "empty": " "   // Hollow dot for empty workspace
+      "empty": " ", // Hollow dot for empty workspace
     },
-    "disable-scroll": true
+    "disable-scroll": true,
   },
-  
+
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
       "(.*) . Mozilla Firefox": "󰈹  $1",
       "(.*)kitty": "󰆍  [$1]",
       "(.*) - (.*) . Visual Studio Code": "󰨞  $2/$1",
-      "(.*) - TIDAL": "  $1"
+      "(.*) - TIDAL": "  $1",
     },
-    "max-length": 30
+    "max-length": 30,
   },
   "network#wlp0": {
     "interface": "wlp0s20f3",
@@ -88,130 +92,142 @@
     "tooltip-format-wifi": "{essid} 󰑩 {signalStrength}%",
     "tooltip-format-ethernet": "{signalStrength}% {essid} 󰑩",
     "interval": 1,
-    "on-click":"nm-connection-editor",
-    "on-click-right":"kitty nmtui",
-    "max-length": 30
+    "on-click": "nm-connection-editor",
+    "on-click-right": "kitty nmtui",
+    "max-length": 30,
   },
   "network#vpn": {
     "interface": "ipv6leakintrf0",
     "family": "ipv4",
     "format-linked": "  󰖂 ",
-    "format" : "  󰖂 ",
+    "format": "  󰖂 ",
     "tooltip": true,
     "tooltip-format": "VPN is inactive",
     "tooltip-format-linked": "VPN is active",
     "interval": 1,
     "on-click": "sh $HOME/scripts/switchvpn.sh",
-    "on-click-right": "notify-send \"Proton VPN\" \"$(protonvpn status)\""
+    "on-click-right": "notify-send \"Proton VPN\" \"$(protonvpn status)\"",
   },
   "backlight": {
     "device": "intel_backlight",
     "tooltip": false,
     "format": "{}% {icon}",
-    "format-icons": ["󰛩 ","󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩓 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "],
-    "interval":1
+    "format-icons": [
+      "󰛩 ",
+      "󱩎 ",
+      "󱩏 ",
+      "󱩐 ",
+      "󱩑 ",
+      "󱩒 ",
+      "󱩓 ",
+      "󱩔 ",
+      "󱩕 ",
+      "󱩖 ",
+      "󰛨 ",
+    ],
+    "interval": 1,
   },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 10
+      "critical": 10,
     },
     "format": "{capacity}% {icon}",
     "format-charging": "󱐋  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{time} {icon} ",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [" ", " ", " ", " ", " "],
   },
   "bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": " {status}",
-	"format-disabled": "󰂲", // an empty format will hide the module
-	"format-connected": "󰂱 {num_connections} connected",
-	"tooltip-format": "{controller_alias}\t{controller_address}",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-  "on-click": "blueman-manager",
-  "on-click-right": "kitty bluetui"
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": " {status}",
+    "format-disabled": "󰂲", // an empty format will hide the module
+    "format-connected": "󰂱 {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager",
+    "on-click-right": "kitty bluetui",
   },
-  "tray":{
-    "icon-size":18,
+  "tray": {
+    "icon-size": 18,
     "spacing": 10,
-    "show-passive-items": false
+    "show-passive-items": false,
   },
   "clock": {
-	  "format": "{:%H:%M}  ",
-	  "format-alt": "{:%A, %B %d, %Y   %H:%M}  ",
-  	"tooltip-format": "<tt><small>{calendar}</small></tt>",
-	  "calendar": {
-		  "mode"          : "year",
-		  "mode-mon-col"  : 3,
-		  "weeks-pos"     : "right",
-		  "on-scroll"     : 1,
-		  "on-click-right": "mode",
-		  "format": {
-			  "months":     "<span color='#e34b49'><b>{}</b></span>",
-			  "days":       "<span color='#5C6164'><b>{}</b></span>",
-			  "weeks":      "<span color='#5C6164'><b>W{}</b></span>",
-			  "weekdays":   "<span color='#70a3b5'><b>{}</b></span>",
-			  "today":      "<span color='#e34b49'><b><u>{}</u></b></span>"
-		  }
-	  },
-	  "actions": {
-		  "on-click-right": "mode",
-		  "on-click-forward": "tz_up",
-		  "on-click-backward": "tz_down",
-		  "on-scroll-up": "shift_up",
-		  "on-scroll-down": "shift_down"
-	  }
+    "format": "{:%H:%M}  ",
+    "format-alt": "{:%A, %B %d, %Y   %H:%M}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#e34b49'><b>{}</b></span>",
+        "days": "<span color='#5C6164'><b>{}</b></span>",
+        "weeks": "<span color='#5C6164'><b>W{}</b></span>",
+        "weekdays": "<span color='#70a3b5'><b>{}</b></span>",
+        "today": "<span color='#e34b49'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
   },
   "cpu": {
     "interval": 15,
     "format": "{}%  ",
-    "max-length": 10
+    "max-length": 10,
   },
   "memory": {
     "interval": 30,
     "format": "{}%  ",
-    "max-length": 10
+    "max-length": 10,
   },
   "custom/media": {
     "format": "{}",
-        "return-type": "json",
-        "max-length": 30,
-        "format-icons": {
-            "spotify": "",
-            "default": "󰎇"
+    "return-type": "json",
+    "max-length": 30,
+    "format-icons": {
+      "spotify": "",
+      "default": "󰎇",
     },
     "exec": "/usr/bin/python3 $HOME/.config/system_scripts/mediaplayer.py",
     "restart-interval": 1,
-    "on-click": "playerctl play-pause"
+    "on-click": "playerctl play-pause",
   },
-  "custom/launcher":{
+  "custom/launcher": {
     "format": " ",
-    "on-click": "rofi -show drun",
-    "on-click-right": "killall rofi"
+    "on-click": "rofi -show drun -show-icons",
+    "on-click-right": "killall rofi",
   },
-  "custom/power":{
+  "custom/power": {
     "format": "⏻ ",
-    "on-click": "rofi -show p -modi p:rofi-power-menu"
+    "on-click": "rofi -show p -modi p:rofi-power-menu",
   },
-  "custom/updates":{
+  "custom/updates": {
     "format": "{} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 3000,
-    "on-click": "kitty yay -Syu && notify-send 'The system has been updated' "
+    "on-click": "kitty yay -Syu && notify-send 'The system has been updated' ",
   },
-  "custom/wallpaper":{
-    "format":" ",
-    "on-click": "bash ~/.config/system_scripts/pkill_bc"
+  "custom/wallpaper": {
+    "format": " ",
+    "on-click": "bash ~/.config/system_scripts/pkill_bc",
   },
 
-  "custom/wayweather":{
+  "custom/wayweather": {
     "format": "{text}",
     "interval": 900,
     "exec": "wayweather --get",
-    "return-type": "json"
-  }
+    "return-type": "json",
+  },
 }

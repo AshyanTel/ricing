@@ -52,3 +52,9 @@ hl.monitor({
     scale = 1,
     transform = 1
 })
+hl.monitor({
+    output = "desc:Hewlett Packard HP 27xw 6CM523074R",
+    mode = "1920x1080@60",
+    position = "auto-center-right",
+    scale = 1,
+})

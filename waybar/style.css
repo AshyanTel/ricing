@@ -1,10 +1,10 @@
 @define-color white         #FFFFFF;
 @define-color black         #000000;
 @define-color accent        #FFFFFF;
-@define-color accent-left   #e34b49;
-@define-color accent-right  #70a3b5;
-@define-color accent-center #5C6164;
-@define-color background    #000000;
+@define-color accent-left   #ecb869;
+@define-color accent-right  #ed6d41;
+@define-color accent-center #DA7F4C;
+@define-color background    #142940;
 
 * {
     border: none;
@@ -143,7 +143,6 @@ Workspace
 
 #battery.charging, #battery.plugged {
     color: @accent-left;
-    background-color: @background;
 }
 
 #battery.critical:not(.charging) {
@@ -174,6 +173,11 @@ Workspace
 #custom-launcher {
     transition: none;
     color: @accent-left;
+}
+
+#custom-microphone {
+  transition: none;
+  color : @accent-right;
 }
 
 #custom-power {
