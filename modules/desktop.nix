@@ -18,11 +18,13 @@
     rofi-power-menu
     mako
     vesktop
+    signal-desktop
     obsidian
     pavucontrol
     bluetui
     vscodium
     libreoffice-fresh
+    hyphenDicts.fr-fr
     yazi
     yaziPlugins.git
     yaziPlugins.diff
