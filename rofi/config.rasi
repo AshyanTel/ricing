@@ -1,7 +1,7 @@
 @theme "theme.rasi"
 
 configuration {
-  modes: "window,drun,run,ssh,emoji,calc,combi,keys,filebrowser,recursivebrowser,nerdy";
+  modes: "window,drun,run,ssh,combi,keys,filebrowser,recursivebrowser";
 	font: "JetBrains Mono NerdFont 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/

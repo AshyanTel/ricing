@@ -113,6 +113,10 @@ disabled = false
 Arch = '󰣇 '
 Debian = ' '
 Ubuntu = ' '
+NixOS = '󱄅 '
+
+[nix_shell]
+symbol = '󱄅 '
 
 
 [time]

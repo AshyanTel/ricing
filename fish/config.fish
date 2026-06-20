@@ -3,14 +3,14 @@ if status is-interactive
   # Prompt Starship.rs
   # Change the prompt with the terminal used.
   if test $TERM = "linux"
-    set -x STARSHIP_CONFIG $HOME/.config/starship_tui.toml
+    set -x STARSHIP_CONFIG $HOME/.config/starship/starship_tui.toml
   else if test $TERM = "xterm-256color"
-    set -x STARSHIP_CONFIG $HOME/.config/starship_code.toml
+    set -x STARSHIP_CONFIG $HOME/.config/starship/starship_code.toml
   else
-    set -x STARSHIP_CONFIG $HOME/.config/starship.toml
+    set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
   end
-  source (/usr/bin/starship init fish --print-full-init | psub)
-  
+
+  source (/run/current-system/sw/bin/starship init fish --print-full-init | psub)
   function cat
     bat --pager never --style plain $argv
   end
@@ -67,7 +67,14 @@ if status is-interactive
   function nixd
     nix develop -c fish -C "source .venv/bin/activate.fish"
   end
+    
+  function nix-clean
+    sudo nix-env --delete-generations old
+  end
 
+  function nix-switch
+    sudo nixos-rebuild switch --flake "$HOME/ricing#$args"
+  end
 end
 
 # Created by `pipx` on 2026-05-29 19:34:36

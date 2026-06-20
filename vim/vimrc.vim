@@ -13,7 +13,7 @@ set clipboard=unnamedplus
 " Activation de la correction syntaxique
 " set spell spelllang=fr
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'rust-lang/rust.vim'
 call plug#end()
