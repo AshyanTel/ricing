@@ -5,4 +5,4 @@
     vesktop
     signal-desktop
   ];
-};
+}

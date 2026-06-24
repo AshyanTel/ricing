@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    libroffice-fresh
+    libreoffice-fresh
     obsidian
   ];
-};
+}
