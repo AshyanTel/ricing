@@ -1,81 +1,48 @@
 if status is-interactive
-  
-  # Prompt Starship.rs
-  # Change the prompt with the terminal used.
-  if test $TERM = "linux"
+
+  #Adapt starship config to terminal used.
+  switch $TERM
+  case "linux"
     set -x STARSHIP_CONFIG $HOME/.config/starship/starship_tui.toml
-  else if test $TERM = "xterm-256color"
+  case "xterm-256color"
     set -x STARSHIP_CONFIG $HOME/.config/starship/starship_code.toml
-  else
+  case "*"
     set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
   end
-
   source (/run/current-system/sw/bin/starship init fish --print-full-init | psub)
-  function cat
+
+  set fish_greeting ""
+  set -x PATH $PATH $HOME/scripts
+
+  #--- DAILY ALIAS ---#
+  function cat -d "Alias to bat --pager never --style plain $args"
     bat --pager never --style plain $argv
   end
 
-  function ls
+  function ls -d "Alias to exa -l --git --icons $args"
     exa -l --git --icons $argv
   end
 
-  function la
-    exa -li --git --icons $argv
+  function la -d "Alias to exa -lA --git --icons $args"
+    exa -lA --git --icons $argv
   end
 
-  function cdd
-    cd (git root)
+  #--- GIT ALIAS ---#
+  function gitcd -d "Return to git project root"
+    cd (git rev-parse --show-toplevel)
   end
 
-  function rars
-    env _JAVA_OPTIONS="-Dsun.java2d.uiScale=2 -Dsun.java2d.dpiaware=true -Dsun.java2d.xrender=true" java -jar /home/ash/inf/4170/rars-flatlaf.jar
-  end
-  
-  set -x PATH $PATH $HOME/scripts /home/ash/.local/share/gem/ruby/3.4.0/bin
-
-  set fish_greeting ""
-  
-  function auto_venv --on-variable PWD
-    set -l dir $PWD
-    set -l found_venv
-
-    while test "$dir" != "/"
-        if test -f "$dir/.venv/bin/activate.fish"
-            set found_venv "$dir/.venv"
-            break
-        end
-
-        set dir (dirname "$dir")
-    end
-
-    if test -n "$found_venv"
-        # Active seulement si ce n'est pas déjà le bon venv
-        if test "$VIRTUAL_ENV" != "$found_venv"
-            if functions -q deactivate
-                deactivate
-            end
-            source "$found_venv/bin/activate.fish"
-        end
-    else
-        # Aucun .venv trouvé -> désactivation
-        if functions -q deactivate
-            deactivate
-        end
-    end
+  #--- NIX ALIAS ---#
+  function nixd -d "Alias to nix develop -c fish"
+    nix develop -c fish
   end
 
-  function nixd
-    nix develop -c fish -C "source .venv/bin/activate.fish"
-  end
-    
-  function nix-clean
+  function nix-clean -d "Delete old generations and rebuild upgrading."
     sudo nix-env --delete-generations old
+    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME" --upgrade
   end
 
-  function nix-switch
-    sudo nixos-rebuild switch --flake "$HOME/ricing#$args"
+  function nix-rs -d "Rebuild"
+    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME"
   end
 end
-
-# Created by `pipx` on 2026-05-29 19:34:36
-# set PATH $VENV/bin $PATH $HOME/.local/bin $HOME/.cargo/bin 
