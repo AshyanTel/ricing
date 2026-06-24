@@ -12,6 +12,10 @@
       ../../modules/desktop.nix
       ../../modules/fonts.nix
       ../../modules/audio.nix
+      ../../modules/burautics.nix
+      ../../modules/coding.nix
+      ../../modules/gaming.nix
+      ../../modules/social.nix
     ];
 
   # Bootloader.
@@ -27,10 +31,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-	
+
   # Enable ly
   services.displayManager.ly.enable = true;
-  
+
   hardware.bluetooth.enable = true;
 
   programs = {
@@ -98,15 +102,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
-    kitty
-    waybar
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    liberation_ttf
   ];
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

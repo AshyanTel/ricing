@@ -8,7 +8,6 @@
     hyprpicker
     waypaper
     mpvpaper
-    firefox
     kitty
     waybar
     rofi-unwrapped
@@ -17,15 +16,9 @@
     rofi-nerdy
     rofi-power-menu
     mako
-    vesktop
-    signal-desktop
-    obsidian
     pavucontrol
     bluetui
-    vscodium
-    libreoffice-fresh
-    hyphen
-    hyphenDicts.fr_FR
+    firefox
     yazi
     yaziPlugins.git
     yaziPlugins.diff
@@ -33,10 +26,6 @@
     papirus-icon-theme
     adwaita-icon-theme
     adwaita-qt
-    tidal-hifi
-    widevine-cdm
-    ankama-launcher
-    prismlauncher
   ];
 
   environment.sessionVariables = {

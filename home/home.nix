@@ -8,16 +8,26 @@
 
   programs.home-manager.enable = true;
 
+  # Git config.
   programs.git = {
     enable = true;
-    settings.user = {
-      email = "auxencemirliaz@ashyantel.dev";
-      name = "ash";
-      editor = "vim";
+    settings = {
+      user = {
+        email = "auxencemirliaz@ashyantel.dev";
+        name = "ash";
+        editor = "vim";
+      };
+      alias = {
+        adog = "log --all --decorate --oneline --graph";
+      };
     };
   };
+
+  # Usage of vim plugs.
   home.file.".vim/autoload/plug.vim".source =
     "${pkgs.vimPlugins.vim-plug}/plug.vim";
+
+  # Safe usage of config files.
   home.file.".config/hypr".source = ../hypr;
   home.file.".config/kitty".source = ../kitty;
   home.file.".config/fish".source = ../fish;
