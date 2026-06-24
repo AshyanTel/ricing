@@ -195,8 +195,6 @@ symbol = ' '
 bash_indicator = 'bash'
 zsh_indicator = 'zsh'
 fish_indicator = 'fish'
-format = '[with](white) [$indicator]($style) '
+format = '[$indicator]($style) '
 style = 'purple bold'
 disabled = false
-
-

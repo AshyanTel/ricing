@@ -8,16 +8,16 @@ require("animations")
 -- Menus
 local menu = "rofi -show drun -show-icons"
 local powerM = "rofi -show p -modi p:rofi-power-menu"
-local emojiM = "rofi -show emoji"
+local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji"
 local sshM = "rofi -show ssh"
 local calcM = "rofi -show calc"
 local winM = "rofi -show window"
 -- Coding, devs
 local terminal = "kitty"
 local text = terminal .. " vim"
-local ide = "code"
+local ide = "codium"
 -- General apps
-local fileManager = "dolphin"
+local fileManager = "yazi"
 local browser = "firefox"
 local discordClient = "vesktop"
 local musicPlayer = "tidal-hifi"
@@ -93,7 +93,7 @@ hl.config({
 			active_border = {
         -- #ECB869 #ED6D41
         -- e32b449dd 70a3b5ee 595959aa
-				colors = { "rgba(ecb869dd)", "rgba(ed6d41ee)" },
+				colors = { "rgba(4e5d80aa)", "rgba(4dd6ddee)" },
 				angle = 0,
 			},
 			inactive_border = "rgba(142940aa)",

@@ -34,11 +34,25 @@
   hardware.bluetooth.enable = true;
 
   programs = {
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
     fish.enable = true;
     starship.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "hyprland";
+  };
+
+  # wayland.windowManager.hyprland.systemd.enable = false;
   # Set your time zone.
   time.timeZone = "America/Toronto";
 

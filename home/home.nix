@@ -13,6 +13,7 @@
     settings.user = {
       email = "auxencemirliaz@ashyantel.dev";
       name = "ash";
+      editor = "vim";
     };
   };
   home.file.".vim/autoload/plug.vim".source =

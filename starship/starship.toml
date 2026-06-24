@@ -135,7 +135,7 @@ style_user = 'bright-red bold'
 style_root = 'bright-yellow blink bold'
 format = '[$user]($style)'
 disabled = false
-show_always = true
+show_always = false
 
 [directory]
 format = 'in(white) [$path]($style)[$read_only]($read_only_style) '
@@ -182,13 +182,13 @@ style = 'bold bright-yellow'
 [hostname]
 style = 'red bold'
 format = '[@](blue bold)[$hostname]($style) '
-ssh_only = false
+ssh_only = true
 
 [shell]
 bash_indicator = 'bash'
 zsh_indicator = 'zsh'
-fish_indicator = ' '
-format = '[with](white) [$indicator]($style) '
+fish_indicator = 'fish'
+format = '[$indicator]($style) '
 style = 'dimmed purple bold'
 disabled = false
 
