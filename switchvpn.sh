@@ -1,5 +1,4 @@
 #!/bin/sh
-
 status="$(protonvpn status)"
 
 if echo "$status" | grep -qi "Disconnected"; then

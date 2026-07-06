@@ -31,8 +31,8 @@ set hidden
 set undofile
 set backupdir=~/.vimtmp//,.
 set directory=~/.vimtmp//,.
-set backup
-set swapfile
+set nobackup
+set noswapfile
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Line Fold
