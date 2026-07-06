@@ -189,7 +189,7 @@ bash_indicator = 'bash'
 zsh_indicator = 'zsh'
 fish_indicator = 'fish'
 format = '[$indicator]($style) '
-style = 'dimmed purple bold'
+style = 'dimmed red bold'
 disabled = false
 
 [cmake]

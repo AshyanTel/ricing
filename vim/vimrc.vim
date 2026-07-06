@@ -1,26 +1,102 @@
-" Affichage du numéro
-set number autoindent expandtab tabstop=2 shiftwidth=2
-
-" Choix du thème de couleur
-colorscheme raindrops
-
-" Activation de la surbrillance pour la recherche
-set hlsearch
-
-" Activation du clipboard
-set clipboard=unnamedplus 
-
-" Activation de la correction syntaxique
-" set spell spelllang=fr
-
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'rust-lang/rust.vim'
-call plug#end()
-
-if (has("termguicolors"))
-  set termguicolors
-endif
-
+" ===== GENERAL =====
+" Generals Settings
 syntax enable
 filetype plugin indent on
+colorscheme catppuccin
+let mapleader=','
+
+" set visualbell
+set formatoptions=tcroql
+set autochdir
+set encoding=utf-8
+set number
+set signcolumn=yes
+
+" Tab settings
+set autoindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+" Search settings
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+
+" Buffer Settings
+set clipboard=unnamedplus
+set hidden
+set undofile
+set backupdir=~/.vimtmp//,.
+set directory=~/.vimtmp//,.
+set backup
+set swapfile
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Line Fold
+set foldmethod=indent
+set nofoldenable
+
+" IDE like integration, save all, and gently quit buffers
+nnoremap <leader>w :wa<CR>
+nnoremap <leader>q :bd<CR>
+nnoremap <leader>x :wqa<CR>
+
+
+if has("termguicolors")
+    set termguicolors
+endif
+
+" <,+s> Turn on spell check
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=fr_CA
+
+" ===== FILES  =====
+" Auto-reload after modifying the config.
+augroup vimrc
+    au!
+    au bufwritepost ~/.vim/vimrc source $MYVIMRC
+    au bufwritepost ~/ricing/vim/vimrc.vim source $MYVIMRC
+augroup END
+" Rules on certains files types
+autocmd filetype bats set syntax=bash
+autocmd filetype make setlocal noexpandtab
+autocmd filetype c,cpp,rb,erb,java set tabstop=2 shiftwidth=2
+autocmd filetype python set tabstop=4 shiftwidth=4
+
+" +120 character line warning
+augroup columnLimit
+  autocmd!
+  autocmd BufEnter,WinEnter,FileType cpp
+        \ highlight CollumnLimit ctermbg=Red guibg=Red
+  let collumnLimit = 121
+  let pattern =
+        \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+  autocmd BufEnter,WinEnter,FileType cpp
+        \ let w:m1=matchadd('ColumnLimit', pattern, -1)
+augroup END
+
+
+
+
+" ===== PLUGINS =====
+call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-commentary'
+    Plug 'rust-lang/rust.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'dense-analysis/ale'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'rhysd/vim-lsp-ale'
+    Plug 'dense-analysis/ale'
+
+    " Pandoc
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+
+    " fzf integration
+    Plug 'junegunn/fzf', { 'do': {  -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+call plug#end()

@@ -8,7 +8,7 @@ require("animations")
 -- Menus
 local menu = "rofi -show drun -show-icons"
 local powerM = "rofi -show p -modi p:rofi-power-menu"
-local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji"
+local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji -a copy"
 local sshM = "rofi -show ssh"
 local calcM = "rofi -show calc"
 local winM = "rofi -show window"
@@ -84,7 +84,7 @@ hl.env("GDK_DPI_SCALE", "1")
 hl.config({
 	general = {
 		gaps_in = 2,
-		gaps_out = 30,
+		gaps_out = 10,
 
 		border_size = 2,
 
@@ -93,7 +93,7 @@ hl.config({
 			active_border = {
         -- #ECB869 #ED6D41
         -- e32b449dd 70a3b5ee 595959aa
-				colors = { "rgba(4e5d80aa)", "rgba(4dd6ddee)" },
+				colors = { "rgba(f38ba8aa)", "rgba(89b4faee)" },
 				angle = 0,
 			},
 			inactive_border = "rgba(142940aa)",
@@ -109,7 +109,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 0,
+		rounding = 10,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows

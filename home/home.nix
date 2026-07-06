@@ -17,6 +17,7 @@
         name = "ash";
         editor = "vim";
       };
+      init.defaultBranch = "main";
       alias = {
         adog = "log --all --decorate --oneline --graph";
       };
@@ -33,6 +34,7 @@
   home.file.".config/fish".source = ../fish;
   home.file.".config/waybar".source = ../waybar;
   home.file.".config/rofi".source = ../rofi;
+  home.file.".config/rofimoji.rc".source = ../rofi/rofimoji.rc;
   home.file.".config/starship".source = ../starship;
   home.file.".vim/colors/raindrops.vim".source = ../vim/raindrops.vim;
 }
