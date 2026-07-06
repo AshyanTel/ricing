@@ -28,7 +28,7 @@ set showmatch
 " Buffer Settings
 set clipboard=unnamedplus
 set hidden
-set undofile
+set noundofile
 set backupdir=~/.vimtmp//,.
 set directory=~/.vimtmp//,.
 set nobackup
