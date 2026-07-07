@@ -54,6 +54,7 @@ button:hover {
 #network,
 #pulseaudio,
 #battery,
+#bluetooth,
 #clock {
     background: @panel;
     border: 0;
@@ -77,6 +78,7 @@ button:hover {
 #custom-perf,
 #network,
 #pulseaudio,
+#bluetooth,
 #battery {
     border-left: 0;
     border-radius: 0;
@@ -132,6 +134,10 @@ button:hover {
 
 #clock {
     color: @mauve;
+}
+
+#bluetooth {
+    color: @blue;
 }
 
 tooltip {

@@ -16,7 +16,7 @@ if status is-interactive
 
   #--- DAILY ALIAS ---#
   function cat -d "Alias to bat --pager never --style plain $args"
-    bat --pager never --style plain $argv
+    bat --pager never --style plain --theme "Catppuccin Mocha" $argv
   end
 
   function ls -d "Alias to exa -l --git --icons $args"

@@ -3,7 +3,7 @@
   "height": 23,
   "margin-bottom": 0,
   "modules-left": [],
-  "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "network#wlp0", "clock"],
+  "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "bluetooth", "network#wlp0", "clock"],
   "modules-right": [],
 
   "spacing": 0,
@@ -15,6 +15,17 @@
     "tooltip": true
   },
 
+  "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": "",
+    "format-disabled": "󰂲", // an empty format will hide the module
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  "on-click": "blueman-manager",
+  "on-click-right": "kitty bluetui"
+  },
   "pulseaudio": {
     "tooltip": false,
     "scroll-step": 5,
