@@ -93,10 +93,11 @@ button:hover {
 #bluetooth,
 #battery {
     border-left: 0;
-    border-radius: 0;
+    border-radius: 999px;
 }
 
 #workspaces button {
+    border-radius: 999px
     background: transparent;
     color: @overlay1;
     padding: 0 4px;
