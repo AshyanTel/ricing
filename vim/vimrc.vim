@@ -15,8 +15,9 @@ set signcolumn=yes
 " Tab settings
 set autoindent
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " Search settings
 set hlsearch
@@ -120,8 +121,7 @@ augroup columnLimit
         \ let w:m1=matchadd('ColumnLimit', pattern, -1)
 augroup END
 
-
-
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 " ===== PLUGINS =====
 call plug#begin('~/.vim/plugged')

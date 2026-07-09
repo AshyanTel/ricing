@@ -1,132 +1,130 @@
 {
-    "layer": "bottom",
-    "height": 23,
-    "margin-bottom": 0,
-    "modules-left": [],
-    "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "bluetooth", "network", "clock"],
-    "modules-right": [],
-    "spacing": 0,
-    
-    "custom/perf": {
-        "exec": "sh ~/ricing/waybar/perf.sh",
-        "interval": 2,
-        "return-type": "json",
-        "tooltip": true,
-        "on-click": "kitty btop"
-    },
-    
-// an empty format will hide the module
+  "layer": "bottom",
+  "height": 23,
+  "margin-bottom": 0,
+  "modules-left": [],
+  "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "bluetooth", "network", "clock"],
+  "modules-right": [],
+  "spacing": 0,
 
+  "custom/perf": {
+    "exec": "sh ~/ricing/waybar/perf.sh",
+    "interval": 2,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "kitty btop"
+  },
 
+  "bluetooth": {
+    "format-icons": ["󰤾 ", "󰤿 ", "󰥀 ", "󰥁 ","󰥂 ","󰥃 ","󰥄 ","󰥅 ","󰥆 ", "󰥈 "],
+    "format-on": "󰂯 on",
+    "format-off": "󰂲 off",
+    "format-connected": "󰂱 {num_connections}",
+    "format-connected-battery": "󰂱 {num_connections} {icon}{device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{num_connections} devices connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager",
+    "on-click-right": "kitty bluetui"
+  },
 
-    "bluetooth": {
-        "format-icons": ["󰤾 ", "󰤿 ", "󰥀 ", "󰥁 ","󰥂 ","󰥃 ","󰥄 ","󰥅 ","󰥆 ", "󰥈 "],
-        "format-on": "󰂯 on",
-        "format-off": "󰂲 off",
-        "format-connected": "󰂱 {num_connections}",
-        "format-connected-battery": "󰂱 {num_connections} {icon}{device_alias}",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{num_connections} devices connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "blueman-manager",
-        "on-click-right": "kitty bluetui"
-    },
-
-    "pulseaudio": {
-        "tooltip": true,
-        "scroll-step": 5,
-        "format": "{icon}{volume}%",
-        "tooltip-format": "Output: {desc}\nInput: {source_desc}",
-        "format-muted": "{icon} 0%",
-        "on-click": "kitty pulsemixer",
-        "on-click-muted": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol",
-        "format-icons": {
-            "default-muted": " ",
-            "bluez_output.B4_84_D5_C4_C9_9D.1": "󱡒 ",
-            "bluez_output.B4_84_D5_C4_C9_9D.1-muted": " 󱡒 ",
-            "default": ["", " ", " "]
-        }
-    },
-
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "format-icons": {
-            "active": " ", // Filled dot for active workspace
-            "default": " ", // Hollow dot for occupied workspace
-            "empty": " " // Hollow dot for empty workspace
-        },
-        "disable-scroll": true
-    },
-    "network": {
-        "interface": "wlp0s20f3",
-        "family": "ipv4",
-        "format-icons": {
-            "wifi":["󰤮 ","󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
-            "ethernet": "󰈁 ",
-            "linked": "󰈂 ",
-            "disconnected": "󰌙 ",
-            "disable": "󰯡 "
-        },
-        "format": "{icon}",
-        "format-wifi": "{icon}{signalStrength}% on {essid}", 
-        "tooltip": true,
-        "tooltip-format":
-        "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
-        "tooltip-format-wifi": "{essid}\nIP: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
-        "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
-        "interval": 1,
-        "max-length": 30
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 20,
-            "critical": 5
-        },
-        "format": "{icon}{capacity}%",
-        "format-time": "{H}:{M}",
-        "format-charging": "{icon}{capacity}%",
-        "format-plugged": "{icon}plugged",
-        "format-alt": "{time}",
-        "format-icons": {
-            "plugged": "󰟩 ",
-            "critical": "󱉞 ",
-            "charging":["󰢟 ","󰢜 ","󰂆 ","󰂇 ","󰂈 ","󰢝 ","󰂉 ","󰢞 ","󰂊 ","󰂋 ","󰂅 "],
-            "default": ["󰂎 ","󰁺 ","󰁻 ","󰁼 ","󰁽 ","󰁾 ","󰁿 ","󰂀 ","󰂁 ","󰂂 ","󰁹 "]
-        },
-        "tooltip-format" : "<b>{time}</b> Remaining",
-        "tooltip-format-charging": "<b>{time}</b> Before Full Charge",
-        "tooltip-format-plugged": "Plugged In",
-        "tooltip-format-full": "Fully Charged",
-        "design-capacity": false,
-        "full-at-plugged": true
-    },
-
-    "clock": {
-        "format": " {:%H:%M}",
-        "format-alt": " {:%A %d %B %Y}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "weeks-pos": "right",
-            "on-scroll": 1,
-            "on-click-right": "mode",
-            "format": {
-                "months": "<span color='#fab387'><b>{}</b></span>",
-                "days": "<span color='#a6e3a1'><b>{}</b></span>",
-                "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
-                "weekdays": "<span color='#f5c2e7'><b>{}</b></span>",
-                "today": "<span color='#f38ba8'><b><i>{}</i></b></span>"
-            }
-        },
-        "actions": {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
+  "pulseaudio": {
+    "tooltip": true,
+    "scroll-step": 5,
+    "format": "{icon}{volume}%",
+    "tooltip-format": "Output: {desc}\nInput: {source_desc}",
+    "format-muted": "{icon} 0%",
+    "on-click": "kitty pulsemixer",
+    "on-click-muted": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "format-icons": {
+      "default-muted": " ",
+      "bluez_output.B4_84_D5_C4_C9_9D.1": "󱡒 ",
+      "bluez_output.B4_84_D5_C4_C9_9D.1-muted": " 󱡒 ",
+      "default": ["", " ", " "]
     }
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {
+      "active": " ", // Filled dot for active workspace
+      "default": " ", // Hollow dot for occupied workspace
+      "empty": " " // Hollow dot for empty workspace
+    },
+    "disable-scroll": true
+  },
+
+  "network": {
+    "interface": "wlp0s20f3",
+    "family": "ipv4",
+    "format-icons": {
+      "wifi":["󰤮 ","󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
+      "ethernet": "󰈁 ",
+      "linked": "󰈂 ",
+      "disconnected": "󰌙 ",
+      "disable": "󰯡 "
+    },
+    "format": "{icon}",
+    "format-wifi": "{icon}{signalStrength}% on {essid}", 
+    "tooltip": true,
+    "tooltip-format":
+    "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
+    "tooltip-format-wifi": "{essid}\nIP: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
+    "interval": 1,
+    "max-length": 30
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 20,
+      "critical": 5
+    },
+    "format": "{icon}{capacity}%",
+    "format-time": "{H}:{M}",
+    "format-charging": "{icon}{capacity}%",
+    "format-plugged": "{icon}plugged",
+    "format-alt": "{time}",
+    "format-icons": {
+      "plugged": "󰟩 ",
+      "critical": "󱉞 ",
+      "charging":["󰢟 ","󰢜 ","󰂆 ","󰂇 ","󰂈 ","󰢝 ","󰂉 ","󰢞 ","󰂊 ","󰂋 ","󰂅 "],
+      "default": ["󰂎 ","󰁺 ","󰁻 ","󰁼 ","󰁽 ","󰁾 ","󰁿 ","󰂀 ","󰂁 ","󰂂 ","󰁹 "]
+    },
+    "tooltip-format" : "<b>{time}</b> Remaining",
+    "tooltip-format-charging": "<b>{time}</b> Before Full Charge",
+    "tooltip-format-plugged": "Plugged In",
+    "tooltip-format-full": "Fully Charged",
+    "design-capacity": false,
+    "full-at-plugged": true
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "format-alt": " {:%A %d %B %Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#fab387'><b>{}</b></span>",
+        "days": "<span color='#a6e3a1'><b>{}</b></span>",
+        "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
+        "weekdays": "<span color='#f5c2e7'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><i>{}</i></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  }
 }
