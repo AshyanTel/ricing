@@ -38,8 +38,7 @@ if status is-interactive
   end
 
   function nix-garbage -d "Delete old generations and rebuild upgrading."
-    nixos-rebuild-switch
-    sudo nix-collect-garbage -d
+    sudo nix-collect-garbage --delete-old
   end
 
   function nix-rebuild-switch -d "Rebuild"
