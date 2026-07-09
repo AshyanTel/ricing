@@ -28,6 +28,8 @@
   home.file.".vim/autoload/plug.vim".source =
     "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
+  programs.rofi.enable = true;
+
   gtk = {
     enable = true;
     theme = {
