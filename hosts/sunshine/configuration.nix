@@ -7,16 +7,17 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/packages.nix
-      ../../modules/desktop.nix
-      ../../modules/fonts.nix
-      ../../modules/audio.nix
-      ../../modules/burautics.nix
-      ../../modules/coding.nix
-      ../../modules/gaming.nix
-      ../../modules/social.nix
-    ];
+    ./hardware-configuration.nix
+    ../../modules/packages.nix
+    ../../modules/desktop.nix
+    ../../modules/fonts.nix
+    ../../modules/audio.nix
+    ../../modules/burautics.nix
+    ../../modules/coding.nix
+    ../../modules/gaming.nix
+    ../../modules/social.nix
+    ../../modules/utils.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
