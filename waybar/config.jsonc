@@ -86,7 +86,8 @@
     "format-time": "{H}:{m}",
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
-    "format-alt": "{time}",
+    "format-alt": "{time} left",
+    "format-alt-full": "testing",
     "format-full" : "{icon}fully charged",
     "format-icons": {
       "full": "󱞜 ",
