@@ -51,7 +51,6 @@
         border_fg = "0x01CBA6F7";
         error_bg = "0x001E1E2E";
         error_fg = "0x01F38BA8";
-        animation = "doom";
         bigclock = true;
         clock = "%H:%M:%S";
         hide_borders = false;
