@@ -92,7 +92,7 @@ window {
     padding:          5;
     background-color: @background;
     border:           2px;
-    border-color: @crust;
+    border-color: linear-gradient(to right, @mauve, @crust);
     border-radius:  10;
 }
 mainbox {
@@ -116,10 +116,10 @@ listview {
     border:       2px dash 0px 0px ;
 }
 scrollbar {
+    radius: 999px;
     width:        4px ;
     padding:      0;
     handle-width: 8px ;
-    handle-radius: 999px;
     border:       1;
     border-color: @mauve;
     border-radius: 999px;
