@@ -37,6 +37,7 @@ element {
     cursor:  pointer;
     spacing: 5px ;
     border:  0;
+    border-radius: 999px;
 }
 element normal.normal {
     background-color: @normal-background;
@@ -162,6 +163,7 @@ entry {
     spacing:           0;
     placeholder-color: Gray;
     placeholder:       "Search";
+    border-radius:      999px;
 }
 prompt {
     spacing:    0;
