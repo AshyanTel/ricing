@@ -16,7 +16,7 @@
     rofi-nerdy
     rofi-power-menu
     librsvg
-    gdb-pixbuf
+    gdk-pixbuf
     mako
     pavucontrol
     bluetui
