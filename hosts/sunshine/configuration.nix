@@ -47,7 +47,6 @@
     };
     fprintd = {
       enable = true;
-      global = false;
     };
   };
 
