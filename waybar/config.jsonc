@@ -87,10 +87,10 @@
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
     "format-alt": "{time}",
-    "format-full" : "{icon}",
+    "format-full" : "{icon}full",
     "format-icons": {
-      "full": "󰟩",
-      "plugged": "󰟩",
+      "full": "󰟩 ",
+      "plugged": "󰟩 ",
       "critical": "󱉞 ",
       "charging":["󰢟 ","󰢜 ","󰂆 ","󰂇 ","󰂈 ","󰢝 ","󰂉 ","󰢞 ","󰂊 ","󰂋 ","󰂅 "],
       "default": ["󰂎 ","󰁺 ","󰁻 ","󰁼 ","󰁽 ","󰁾 ","󰁿 ","󰂀 ","󰂁 ","󰂂 ","󰁹 "]
