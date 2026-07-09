@@ -28,6 +28,30 @@
   home.file.".vim/autoload/plug.vim".source =
     "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      package = pkgs.cattpuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        tweaks = [ ];
+        variant = "mocha";
+      };
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = "pkgs.bibata-cursor";
+      size = 24;
+    };
+  };
+
   # Safe usage of config files.
   home.file.".config/hypr".source = ../hypr;
   home.file.".config/kitty".source = ../kitty;
