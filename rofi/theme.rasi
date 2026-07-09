@@ -119,6 +119,7 @@ scrollbar {
     width:        4px ;
     padding:      0;
     handle-width: 8px ;
+    handle-radius: 999px;
     border:       1;
     border-color: @mauve;
     border-radius: 999px;
