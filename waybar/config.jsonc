@@ -82,8 +82,8 @@
       "warning": 20,
       "critical": 5
     },
-    "format": "{icon}{capacity}%i {time}",
-    "format-time": "{H}:{M}",
+    "format": "{icon}{capacity}%",
+    "format-time": "{H}:{m}",
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
     "format-alt": "{time}",
