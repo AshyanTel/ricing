@@ -63,6 +63,18 @@ button:hover {
     color: @text;
 }
 
+#workspaces:hover,
+#custom-perf:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#bluetooth:hover,
+#clock:hover {
+    color: @pannel;
+}
+
+
+
 #workspaces {
     border-radius: 999px 0 0 999px;
     padding-left: 11px;
@@ -97,8 +109,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    color: @pannel;
-    background: @marron;
+    background: @maroon;
 }
 
 #custom-perf {
@@ -106,7 +117,7 @@ button:hover {
 }
 
 #custom-perf:hover {
-    color: @sapphire;
+    background: @peach;
 }
 
 #pulseaudio {
@@ -114,7 +125,7 @@ button:hover {
 }
 
 #pulseaudio:hover {
-    color: @yellow;
+    background: @yellow;
 }
 
 #battery {
@@ -138,7 +149,7 @@ button:hover {
 }
 
 #battery:hover {
-    color: @lavender;
+    background: @green;
 }
 
 
@@ -147,7 +158,6 @@ button:hover {
 }
 
 #bluetooth:hover {
-    color: @panel;
     background: @teal
 }
 
@@ -155,8 +165,8 @@ button:hover {
     color: @sky;
 }
 
-#network:hover {
-    color: @peach;
+#network:hover{
+  background: @sky;
 }
 
 #clock {
@@ -164,7 +174,7 @@ button:hover {
 }
 
 #clock:hover {
-    color: @flamingo;
+    background: @sapphire;
 }
 
 tooltip {
