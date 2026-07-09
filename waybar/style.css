@@ -22,7 +22,7 @@
 @define-color blue #89b4fa;
 @define-color lavender #b4befe;
 
-@define-color panel rgba(30, 30, 46, 0.92);
+@define-color panel rgba(30, 30, 46, 0.10);
 @define-color panel-border rgba(69, 71, 90, 0.9);
 
 * {
@@ -35,8 +35,8 @@
 }
 
 .modules-center {
-  background: @mauve;
-  opacity: 10%;
+  background: @panel;
+  border: @crust;
   border-radius: 999px;
 }
 
