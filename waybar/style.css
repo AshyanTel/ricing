@@ -71,7 +71,7 @@ button:hover {
 #bluetooth:hover,
 #clock:hover {
     color: @pannel;
-    border-radius 999px;
+    border-radius: 999px;
 }
 
 
