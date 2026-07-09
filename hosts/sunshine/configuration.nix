@@ -43,7 +43,19 @@
   networking.networkmanager.enable = true;
 
   services = {
-    displayManager.ly.enable = true;
+    displayManager.ly = {
+      enable = true;
+      settings = {
+        bg = "0x001E1E2E";
+        fg = "0x00CDD6F4";
+        border_fg = "0x01CBA6F7";
+        error_bg = "0x001E1E2E";
+        error_fg = "0x01F38BA8";
+        bigclock = true;
+        clock = "%H:%M:%S";
+        hide_borders = false;
+      };
+    };
     xserver.xkb = {
       layout = "fr";
       variant = "us";

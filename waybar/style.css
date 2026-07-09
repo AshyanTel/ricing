@@ -144,6 +144,7 @@ button:hover {
 }
 
 #battery:hover {
+    color: @panel;
     background: @green;
 }
 
