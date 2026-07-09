@@ -1,48 +1,42 @@
-@import "colors"
+// @import "catppuccin-latte"
+// @import "catppuccin-frappe"
+// @import "catppuccin-macchiato"
+// @import "catppuccin-mocha"
 
 * {
-  foreground:                   @text; 
-  background:                   @base;
+  selected-active-foreground:  @background;
+  lightfg:                     @text;
+  separatorcolor:              @foreground;
+  urgent-foreground:           @red;
+  alternate-urgent-background: @lightbg;
+  lightbg:                     @mantle;
+  background-color:            transparent;
+  border-color:                @foreground;
+  normal-background:           @background;
+  selected-urgent-background:  @red;
+  alternate-active-background: @lightbg;
+  spacing:                     2;
+  alternate-normal-foreground: @foreground;
+  urgent-background:           @background;
+  selected-normal-foreground:  @lightbg;
+  active-foreground:           @blue;
+  background:                  @base;
+  selected-active-background:  @blue;
+  active-background:           @background;
+  selected-normal-background:  @lightfg;
+  alternate-normal-background: @lightbg;
+  foreground:                  @text;
+  selected-urgent-foreground:  @background;
+  normal-foreground:           @foreground;
+  alternate-urgent-foreground: @red;
+  alternate-active-foreground: @blue;
 
-  lightfg:                      @blue;
-  lightbg:                      @base;
-  
-  background-color:             transparent;
-  border-color:                 @red; 
-  spacing:                      4;
-  separatorcolor:               @foreground;
-
-  normal-foreground:            @foreground;
-  normal-background:            transparent;
-  urgent-foreground:            @red;
-  urgent-background:            @background;
-  active-foreground:            @red;
-  active-background:            @background;
-
-  selected-normal-foreground:   @lightbg;
-  selected-normal-background:   @lightfg;
-  selected-urgent-foreground:   @background;
-  selected-urgent-background:   @red;
-  selected-active-foreground:   @background;
-  selected-active-background:   @blue;
- 
-  alternate-normal-foreground:  @foreground; 
-  alternate-normal-background:  transparent;
-  alternate-urgent-foreground:  @red; 
-  alternate-urgent-background:  @lightbg;
-  alternate-active-foreground:  @green;
-  alternate-active-background:  @lightbg;
-  
-  //Entries
-  entry:                        @blue-hl;
-  entry-ph:                     @blue;
 }
 element {
-    padding: 3px 10px;
+    padding: 1px ;
     cursor:  pointer;
     spacing: 5px ;
     border:  0;
-    border-radius: 0;
 }
 element normal.normal {
     background-color: @normal-background;
@@ -94,9 +88,8 @@ element-icon {
 }
 window {
     padding:          5;
-    background-color: rgba(0,0,0,0.8);
-    border:           2;
-    border-radius:    0;
+    background-color: @background;
+    border:           1;
 }
 mainbox {
     padding: 0;
@@ -123,9 +116,7 @@ scrollbar {
     padding:      0;
     handle-width: 8px ;
     border:       0;
-    border-radius: 0;
-    handle-color: @white;
-    handle-radius: 10;
+    handle-color: @normal-foreground;
 }
 sidebar {
     border-color: @separatorcolor;
@@ -164,10 +155,10 @@ case-indicator {
     text-color: @normal-foreground;
 }
 entry {
-    text-color:        @entry;
+    text-color:        @normal-foreground;
     cursor:            text;
     spacing:           0;
-    placeholder-color: @entry-ph;
+    placeholder-color: Gray;
     placeholder:       "Type to filter";
 }
 prompt {
