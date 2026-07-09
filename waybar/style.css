@@ -80,6 +80,14 @@ button:hover {
     border-radius: 999px;
 }
 
+#cursotom-perf,
+#network,
+#pulseaudio,
+#battery,
+#bluetooth,
+#clock {
+  margin: 0 1px 0 0;
+}
 
 #workspaces button {
     background: transparent;
