@@ -39,8 +39,14 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable ly
-  services.displayManager.ly.enable = true;
+  services = {
+    displayManager.ly.enable = true;
+    xserver.xkb = {
+      layout = "fr";
+      variant = "us";
+    };
+    fprintd.enable = true;
+  };
 
   hardware.bluetooth.enable = true;
 
@@ -80,12 +86,6 @@
     LC_PAPER = "en_CA.UTF-8";
     LC_TELEPHONE = "en_CA.UTF-8";
     LC_TIME = "en_CA.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "fr";
-    variant = "us";
   };
 
   # Configure console keymap
