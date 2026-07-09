@@ -37,12 +37,15 @@ if status is-interactive
     nix develop -c fish
   end
 
-  function nix-clean -d "Delete old generations and rebuild upgrading."
-    sudo nix-env --delete-generations old
-    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME" 
+  function nix-garbage -d "Delete old generations and rebuild upgrading."
+    nixos-rebuild-switch
+    sudo nix-collect-garbage -d
   end
 
-  function nix-rs -d "Rebuild"
+  function nix-rebuild-switch -d "Rebuild"
+    git -C ~/ricing add .
+    git -C ~/ricing commit -m "WIP"
     sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME"
+    source ~/ricing/fish/config.fish
   end
 end
