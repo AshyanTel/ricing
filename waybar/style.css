@@ -22,8 +22,8 @@
 @define-color blue #89b4fa;
 @define-color lavender #b4befe;
 
-@define-color panel rgba(30, 30, 46, 0.10);
-@define-color panel-border rgba(69, 71, 90, 0.9);
+@define-color panel rgba(30, 30, 46, 1);
+@define-color panel-border rgba(17, 17, 27, 1);
 
 * {
     border: none;
@@ -36,7 +36,7 @@
 
 .modules-center {
   background: @panel;
-  border: @crust;
+  border: 2px solid @panel-border;
   border-radius: 999px;
 }
 
@@ -77,7 +77,7 @@ button:hover {
 #battery:hover,
 #bluetooth:hover,
 #clock:hover {
-    color: @pannel;
+    color: @panel;
     border-radius: 999px;
 }
 
@@ -147,7 +147,7 @@ button:hover {
 
 @keyframes blink {
     to {
-        color: @fg;
+        color: @text;
     }
 }
 
