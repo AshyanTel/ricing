@@ -163,6 +163,7 @@ entry {
     spacing:           0;
     placeholder-color: Gray;
     placeholder:       "Search";
+    padding: 0px 10px 0px 10px;
     border-radius:      999px;
 }
 prompt {
