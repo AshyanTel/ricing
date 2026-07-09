@@ -35,7 +35,7 @@
 }
 
 .module-right {
-  background: @panel;
+  background: @mauve;
   border-radius: 999px;
 }
 
