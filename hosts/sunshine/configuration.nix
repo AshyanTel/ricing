@@ -114,15 +114,15 @@
   console = { 
     keyMap = "us";
     colors = [
-      "1e1e2e" # 0 base
+      "11111b" # 0 crust
       "f38ba8" # 1 red
       "a6e3a1" # 2 green
       "f9e2af" # 3 yellow
       "89b4fa" # 4 blue
-      "cba6f7" # 5 magenta slot -> mauve
+      "cba6f7" # 5 mauve
       "94e2d5" # 6 teal
       "bac2de" # 7 subtext1
-      "585b70" # 8 surface2
+      "1e1e2e" # 8 vase
       "f38ba8" # 9 red bright
       "a6e3a1" # a green bright
       "f9e2af" # b yellow bright
