@@ -89,7 +89,7 @@ element-icon {
 window {
     padding:          5;
     background-color: @background;
-    border:           2 solid @crust;
+    border:           2px solid @crust;
     border-radius: 10;
 }
 mainbox {
