@@ -92,37 +92,33 @@ button:hover {
 
 #workspaces button.active {
     color: @panel;
-    background: @peach;
+    background: @red;
     border-radius: 999px;
 }
 
 #workspaces button:hover {
-    color: @sky;
+    color: @marron;
 }
 
 #custom-perf {
-    color: @sky;
-}
-
-#network {
-    color: @yellow;
+    color: @peach;
 }
 
 #pulseaudio {
-    color: @green;
+    color: @yellow;
 }
 
 #battery {
-    color: @blue;
+    color: @green;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @blue;
+    color: @green;
 }
 
 #battery.critical:not(.charging) {
-    color: @rosewater;
+    color: @red;
     animation: blink 0.5s linear infinite alternate;
 }
 
@@ -132,13 +128,18 @@ button:hover {
     }
 }
 
-#clock {
-    color: @mauve;
+#bluetooth {
+    color: @teal;
 }
 
-#bluetooth {
-    color: @blue;
+#network {
+    color: @sky;
 }
+
+#clock {
+    color: @sapphire;
+}
+
 
 tooltip {
     background: @base;
