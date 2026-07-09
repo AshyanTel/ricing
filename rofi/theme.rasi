@@ -92,7 +92,7 @@ window {
     padding:          5;
     background-color: @background;
     border:           2px;
-    border-color:   linear-gradient(45deg, pink, green);
+    border-color:   @mauve;
     border-radius:  10;
 }
 mainbox {
