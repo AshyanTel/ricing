@@ -87,9 +87,9 @@
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
     "format-alt": "{time}",
-    "format-full" : "{icon}full",
+    "format-full" : "{icon}fully charged",
     "format-icons": {
-      "full": "󰟩 ",
+      "full": "󱞜 ",
       "plugged": "󰟩 ",
       "critical": "󱉞 ",
       "charging":["󰢟 ","󰢜 ","󰂆 ","󰂇 ","󰂈 ","󰢝 ","󰂉 ","󰢞 ","󰂊 ","󰂋 ","󰂅 "],
