@@ -21,8 +21,11 @@
 
  
   security.pam.services = {
-    ly.fprintAuth = true;
-    hyprlock.fprintAuth = true;
+    ly.fprintAuth = false;
+    hyprlock = {
+      fprintAuth = true;
+      rules.auth.fprintd.settings.timeout = 10;
+    };
   };
 
   # Bootloader.
