@@ -58,6 +58,10 @@ hl.env("GDK_SCALE", "2")
 hl.env("QT_SCALE_FACTOR", "1")
 hl.env("GDK_DPI_SCALE", "1")
 
+hl.env("GTK_THEME","Catppuccin-Mocha-Standard-Mauve-Dark")
+hl.env("QT_QPA_PLATFORMTHEME","gtk")
+hl.env("QT_STYLE_OVERRIDE","kvantum")
+
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
