@@ -91,10 +91,8 @@ hl.config({
 
 		col = {
 			active_border = {
-        -- #ECB869 #ED6D41
-        -- e32b449dd 70a3b5ee 595959aa
 				colors = { "rgba(cba6f7aa)", "rgba(11111bee)" },
-				angle = 0,
+				angle = 45,
 			},
 			inactive_border = "rgba(181825aa)",
 		},
