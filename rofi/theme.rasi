@@ -76,6 +76,7 @@ element alternate.active {
     text-color:       @alternate-active-foreground;
 }
 element-text {
+    padding: 0 3px 0 0;
     background-color: transparent;
     cursor:           inherit;
     highlight:        inherit;
@@ -163,7 +164,7 @@ entry {
     spacing:           0;
     placeholder-color: Gray;
     placeholder:       "Search";
-    padding: 3px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
     border-radius:      999px;
 }
 prompt {
