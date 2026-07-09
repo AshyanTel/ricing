@@ -1,7 +1,7 @@
 // @import "catppuccin-latte"
 // @import "catppuccin-frappe"
 // @import "catppuccin-macchiato"
-// @import "catppuccin-mocha"
+@import "catppuccin-mocha"
 
 * {
   selected-active-foreground:  @background;
@@ -19,9 +19,9 @@
   alternate-normal-foreground: @foreground;
   urgent-background:           @background;
   selected-normal-foreground:  @lightbg;
-  active-foreground:           @blue;
+  active-foreground:           @mauve;
   background:                  @base;
-  selected-active-background:  @blue;
+  selected-active-background:  @mauve;
   active-background:           @background;
   selected-normal-background:  @lightfg;
   alternate-normal-background: @lightbg;
@@ -29,7 +29,7 @@
   selected-urgent-foreground:  @background;
   normal-foreground:           @foreground;
   alternate-urgent-foreground: @red;
-  alternate-active-foreground: @blue;
+  alternate-active-foreground: @mauve;
 
 }
 element {
