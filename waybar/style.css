@@ -29,15 +29,14 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrains Mono Nerd Font", monospace;
-    font-size: 12px;
-    min-height: 0;
-    padding: 2px 0px 0px 0px;
+    font-size: 13px;
 }
 
 .modules-center {
   background: @panel;
   border: 1px solid @panel-border;
   border-radius: 999px;
+  padding: 3px;
 }
 
 
@@ -93,10 +92,11 @@ button:hover {
 }
 
 #workspaces button {
-    border-radius: 999px;
     background: transparent;
     color: @overlay1;
-    padding: 0 4px;
+    margin: 0 3px;
+    padding: 0 8px;
+    border-radius: 999px;
 }
 
 #workspaces button.active {
