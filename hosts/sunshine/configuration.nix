@@ -23,10 +23,6 @@
   security.pam.services = {
     ly.fprintAuth = true;
     hyprlock.fprintAuth = true;
-    logind.settings.Login = {
-      HandlePowerKey = "lock";
-      HandlePowerKeyLongPress = "poweroff";
-    };
   };
 
   # Bootloader.
@@ -52,6 +48,11 @@
     fprintd = {
       enable = true;
     };
+    logind.settings.Login = {
+      HandlePowerKey = "lock";
+      HandlePowerKeyLongPress = "poweroff";
+    };
+
   };
 
   hardware.bluetooth.enable = true;
