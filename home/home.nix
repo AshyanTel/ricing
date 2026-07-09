@@ -15,11 +15,6 @@
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
     };
-  
-  security.pam.services = {
-    ly.fprintAuth = true;
-    hyprlock.fprintAuth = true;
-  };
 
   # Safe usage of config files.
   file = { 

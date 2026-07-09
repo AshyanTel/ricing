@@ -19,6 +19,12 @@
     ../../modules/utils.nix
   ];
 
+ 
+  security.pam.services = {
+    ly.fprintAuth = true;
+    hyprlock.fprintAuth = true;
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
