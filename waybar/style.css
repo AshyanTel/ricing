@@ -34,6 +34,12 @@
     padding: 0;
 }
 
+.module-right {
+  background: @panel;
+  border-radius: 999px;
+}
+
+
 window#waybar {
     background: transparent;
     color: @text;
