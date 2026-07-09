@@ -89,8 +89,8 @@
     "format-alt": "{time}",
     "format-full" : "{icon}",
     "format-icons": {
-      "full": "󰟩 ",
-      "plugged": "󰟩 ",
+      "full": "󰟩",
+      "plugged": "󰟩",
       "critical": "󱉞 ",
       "charging":["󰢟 ","󰢜 ","󰂆 ","󰂇 ","󰂈 ","󰢝 ","󰂉 ","󰢞 ","󰂊 ","󰂋 ","󰂅 "],
       "default": ["󰂎 ","󰁺 ","󰁻 ","󰁼 ","󰁽 ","󰁾 ","󰁿 ","󰂀 ","󰂁 ","󰂂 ","󰁹 "]
