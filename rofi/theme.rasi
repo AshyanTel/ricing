@@ -119,8 +119,10 @@ scrollbar {
     width:        4px ;
     padding:      0;
     handle-width: 8px ;
-    border:       0;
-    handle-color: @normal-foreground;
+    border:       1;
+    border-color: @mauve;
+    border-radius: 999px;
+    handle-color: @normal-background;
 }
 sidebar {
     border-color: @separatorcolor;
