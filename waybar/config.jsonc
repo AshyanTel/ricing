@@ -83,10 +83,10 @@
       "critical": 5
     },
     "format": "{icon}{capacity}%",
-    "format-time": "{H}:{M}",
+    //"format-time": "{H}:{M}",
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
-    "format-alt": "bloup {time}",
+    "format-alt": "{time}",
     "format-icons": {
       "plugged": "󰟩 ",
       "critical": "󱉞 ",
