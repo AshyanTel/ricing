@@ -49,8 +49,8 @@
       user = {
         email = "auxencemirliaz@ashyantel.dev";
         name = "ash";
-        editor = "vim";
       };
+      core.editor = "vim";
       init.defaultBranch = "main";
       alias = {
         adog = "log --all --decorate --oneline --graph";
