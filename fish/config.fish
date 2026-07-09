@@ -39,7 +39,7 @@ if status is-interactive
 
   function nix-clean -d "Delete old generations and rebuild upgrading."
     sudo nix-env --delete-generations old
-    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME" --upgrade
+    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME" 
   end
 
   function nix-rs -d "Rebuild"
