@@ -49,7 +49,14 @@ if status is-interactive
     nix-rebuild-switch
   end
   
-  function nix-clean -d "Clean generations"
-    set -l i 1
+  function nix-renum-gen -d "Renumber nix generations starting at 1."
+    set -l current (readlink /nix/var/nix/profiles/system)
+    sudo mv --no-target-directory /nix/var/nix/profiles/$current /nix/var/nix/profiles/system-1-link
+    sudo ln -sfn system-1-link /nix/var/nix/profiles/system
+  end
+
+  function nix-clean-gen -d "Clean generations"
+    nix-garbage
+    nix-renum-gen
   end
 end
