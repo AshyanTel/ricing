@@ -45,7 +45,10 @@
       layout = "fr";
       variant = "us";
     };
-    fprintd.enable = true;
+    fprintd = {
+      enable = true;
+      global = false;
+    };
   };
 
   hardware.bluetooth.enable = true;
