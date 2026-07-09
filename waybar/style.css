@@ -64,8 +64,8 @@ button:hover {
 #clock {
     background: transparent;
     border: 0;
-    padding: 1px 10px 0;
-    margin: 0;
+    padding: 0 10px;
+    margin: 0 0 0 3px;
     color: @text;
 }
 
@@ -78,15 +78,6 @@ button:hover {
 #clock:hover {
     color: @panel;
     border-radius: 999px;
-}
-
-#cursotom-perf,
-#network,
-#pulseaudio,
-#battery,
-#bluetooth,
-#clock {
-  margin: 0 1px 0 0;
 }
 
 #workspaces button {
