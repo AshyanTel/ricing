@@ -97,7 +97,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    color: @marron;
+    color: #FF0000;
 }
 
 #custom-perf {
