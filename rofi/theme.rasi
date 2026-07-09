@@ -76,7 +76,7 @@ element alternate.active {
     text-color:       @alternate-active-foreground;
 }
 element-text {
-    padding: 0 3px 0 0;
+    padding: 0 100px 0 0;
     background-color: transparent;
     cursor:           inherit;
     highlight:        inherit;
