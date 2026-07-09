@@ -19,7 +19,7 @@
     ../../modules/utils.nix
   ];
 
- 
+
   security.pam.services = {
     ly.fprintAuth = false;
     hyprlock = {
@@ -114,11 +114,25 @@
   # Configure console keymap
   console = { 
     keyMap = "us";
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
-  };
+    colors = [
+      "1e1e2e" # 0 base
+      "f38ba8" # 1 red
+      "a6e3a1" # 2 green
+      "f9e2af" # 3 yellow
+      "89b4fa" # 4 blue
+      "cba6f7" # 5 magenta slot -> mauve
+      "94e2d5" # 6 teal
+      "bac2de" # 7 subtext1
+      "585b70" # 8 surface2
+      "f38ba8" # 9 red bright
+      "a6e3a1" # a green bright
+      "f9e2af" # b yellow bright
+      "89b4fa" # c blue bright
+      "cba6f7" # d mauve bright
+      "94e2d5" # e teal bright
+      "a6adc8" # f subtext0
+      ];
+      };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."ash" = {
     isNormalUser = true;
