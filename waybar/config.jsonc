@@ -82,9 +82,11 @@
       "warning": 20,
       "critical": 5
     },
-    "format": "{icon}{capacity}%",
+    "format": "{icon}{capacity}%i {time}",
+    "format-time": "{H}:{M}",
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
+    "format-alt": "{time}",
     "format-icons": {
       "plugged": "󰟩 ",
       "critical": "󱉞 ",
