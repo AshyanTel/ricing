@@ -56,7 +56,7 @@ button:hover {
 #battery,
 #bluetooth,
 #clock {
-    background: @panel;
+    background: transparent;
     border: 0;
     padding: 1px 10px 0;
     margin: 0;
