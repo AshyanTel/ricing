@@ -97,7 +97,7 @@ button:hover {
 }
 
 #workspaces button {
-    border-radius: 999px
+    border-radius: 999px;
     background: transparent;
     color: @overlay1;
     padding: 0 4px;
