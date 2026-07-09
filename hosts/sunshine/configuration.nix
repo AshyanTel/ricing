@@ -112,8 +112,13 @@
   };
 
   # Configure console keymap
-  console.keyMap = "us";
-
+  console = { 
+    keyMap = "us";
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+    };
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."ash" = {
     isNormalUser = true;
