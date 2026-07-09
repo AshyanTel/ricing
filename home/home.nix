@@ -71,6 +71,11 @@
     [General]
     theme=Catppuccin-Mocha
   '';
+  
+  home.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Ice";
+    XCURSOR_SIZE = "24";
+  };
 
   # Safe usage of config files.
   home.file.".config/hypr".source = ../hypr;
