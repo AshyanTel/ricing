@@ -23,7 +23,7 @@
   background:                  @base;
   selected-active-background:  @mauve;
   active-background:           @background;
-  selected-normal-background:  @lightfg;
+  selected-normal-background:  @mauve;
   alternate-normal-background: @lightbg;
   foreground:                  @text;
   selected-urgent-foreground:  @background;
