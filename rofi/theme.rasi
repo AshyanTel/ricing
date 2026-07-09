@@ -159,7 +159,7 @@ entry {
     cursor:            text;
     spacing:           0;
     placeholder-color: Gray;
-    placeholder:       "Type to filter";
+    placeholder:       "Search";
 }
 prompt {
     spacing:    0;
