@@ -81,16 +81,6 @@ button:hover {
     border-radius: 999px;
 }
 
-#workspaces {
-    border-radius: 999px 0 0 999px;
-    padding-left: 11px;
-}
-
-#clock {
-    border-radius: 0 999px 999px 0;
-    padding-right: 11px;
-    padding-top: 2px;
-}
 
 #workspaces button {
     background: transparent;
