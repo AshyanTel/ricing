@@ -25,8 +25,8 @@
     [General]
     theme=Catppuccin-Mocha
     '';
-
-
+    
+    ".config/user".source = ../user.png;
 
     ".config/hypr".source = ../hypr;
     ".config/kitty".source = ../kitty;
@@ -37,7 +37,7 @@
     ".config/starship".source = ../starship;
     ".vim/colors/raindrops.vim".source = ../vim/raindrops.vim;
     };
-    };
+  };
 
     programs = {
       home-manager.enable = true;
