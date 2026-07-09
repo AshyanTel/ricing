@@ -36,6 +36,7 @@
 
 .modules-center {
   background: @mauve;
+  opacity: 10%;
   border-radius: 999px;
 }
 
