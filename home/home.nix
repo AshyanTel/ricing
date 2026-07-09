@@ -52,6 +52,26 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "kvantum";
+  };
+
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    catppuccin-kvantum
+  ];
+  
+  home.file.".config/Kvantum/Catppuccin-Mocha".source =
+    "${pkgs.catppuccin-kvantum}/share/Kvantum/Catppuccin-Mocha-Mauve";
+
+  home.file.".config/Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=Catppuccin-Mocha
+  '';
+
   # Safe usage of config files.
   home.file.".config/hypr".source = ../hypr;
   home.file.".config/kitty".source = ../kitty;
