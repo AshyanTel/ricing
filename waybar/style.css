@@ -29,14 +29,15 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrains Mono Nerd Font", monospace;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .modules-center {
   background: @panel;
   border: 1px solid @panel-border;
   border-radius: 999px;
-  padding: 3px;
+  margin: 2px 0 0 0;
+  padding: 1px;
 }
 
 
