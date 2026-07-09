@@ -86,7 +86,7 @@
     "format-time": "{H}:{M}",
     "format-charging": "{icon}{capacity}%",
     "format-plugged": "{icon}plugged",
-    "format-alt": "{time}",
+    "format-alt": "bloup {time}",
     "format-icons": {
       "plugged": "󰟩 ",
       "critical": "󱉞 ",
