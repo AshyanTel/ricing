@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, self, ... }:
 
 
 {
@@ -6,10 +6,11 @@
     username = "ash";
     homeDirectory = "/home/ash";
     stateVersion = "26.05";
-    packages = with pkgs; [
-      libsForQt5.qtstyleplugin-kvantum
-      kdePackages.qtstyleplugin-kvantum
-      catppuccin-kvantum
+    packages =  [
+      pkgs.libsForQt5.qtstyleplugin-kvantum
+      pkgs.kdePackages.qtstyleplugin-kvantum
+      pkgs.catppuccin-kvantum
+      (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
     ];
     pointerCursor = {
       name = "Bibata-Modern-Classic";
