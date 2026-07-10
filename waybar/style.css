@@ -81,30 +81,38 @@ button:hover {
 }
 
 #workspaces button {
-    background: transparent;
-    color: @overlay1;
+    background: @mantle;
+    color: @subtext0;
     padding: 0 5px;
     border-radius: 999px;
+    border: 2px solid;
+    border-color: transparent; 
 }
 
-#workspaces button:not(:first-child):not(:last-child) {
-    margin: 0 3px;
+#workspaces button:not(:first-child) {
+    margin: 0 0 0 3px;
 }
 
 
 #workspaces button.active {
-    color: @panel;
-    background: @red;
+    color: @subtext1;
+    background: @mantle;
+    border: 2px solid;
+    border-color: @red;
     border-radius: 999px;
 }
 
 #workspaces button.active:hover {
-    background: @maroon;
+    background: @red;
+    border: 2px solid;
+    border-color: @red;
 }
 
 #workspaces button:hover {
-    color: @panel;
+    border: 2px solid;
+    color: @crust;
     background: @red;
+    border-color: @red;
 }
 
 #custom-perf {
@@ -175,13 +183,13 @@ button:hover {
 
 tooltip {
     background: @base;
-    border: 1px solid @surface1;
-    border-radius: 16px;
+    border: 2px solid @crust;
+    border-radius: 10px;
 }
 
 tooltip label {
     color: @text;
-    padding: 6px 10px;
+    padding: 3px 15px;
 }
 
 #workspaces,
