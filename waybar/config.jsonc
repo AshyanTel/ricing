@@ -73,7 +73,7 @@
     "tooltip-format-wifi": "{essid}\nIP: {ipaddr}/{cidr}\nSignal: {signalStrength}%\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
     "interval": 1,
-    "max-length": 30
+    "max-length": 30,
     "on-click": "nmtui-go"
   },
 
