@@ -74,7 +74,7 @@
     "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBytes}\nDown: {bandwidthDownBytes}",
     "interval": 1,
     "max-length": 30,
-    "on-click": "nmtui-go"
+    "on-click": "kitty nmtui-go"
   },
 
   "battery": {
