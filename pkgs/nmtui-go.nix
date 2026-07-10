@@ -14,7 +14,7 @@ buildGoModule rec {
   vendorHash = "sha256-FYrLLZHd7C98LzmIUuEpJxLEqT2j/7GWHTcjNRRV4xY=";
   
   postInstall = ''
-    mv $out/bim/cmd $out/bin/nmtui-go
+    mv $out/bin/cmd $out/bin/nmtui-go
   '';
 
   meta = {
