@@ -32,6 +32,10 @@ if status is-interactive
     cd (git rev-parse --show-toplevel)
   end
 
+  function lg -d "open lazygit"
+    lazygit
+  end
+
   #--- NIX ALIAS ---#
   function nixd -d "Alias to nix develop -c fish"
     nix develop -c fish
