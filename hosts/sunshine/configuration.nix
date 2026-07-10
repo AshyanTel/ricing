@@ -79,6 +79,7 @@
     };
     fish.enable = true;
     starship.enable = true;
+    dconf.enable = true;
   };
 
   xdg.portal = {
@@ -88,7 +89,12 @@
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
-    config.common.default = "hyprland";
+    config = {
+      hyprland = {
+        default = [ "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      };
+    };
   };
 
   # wayland.windowManager.hyprland.systemd.enable = false;

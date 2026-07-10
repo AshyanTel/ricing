@@ -52,14 +52,15 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("GDK_SCALE", "2")
 hl.env("QT_SCALE_FACTOR", "1")
 hl.env("GDK_DPI_SCALE", "1")
-hl.env("GTK_THEME","Catppuccin-Mocha-Standard-Mauve-Dark")
-hl.env("QT_QPA_PLATFORMTHEME","gtk3")
-hl.env("QT_STYLE_OVERRIDE","kvantum")
+
+hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("XCURSOR_SIZE", "20")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("HYPRCURSOR_SIZE", "20")
+
 -----------------------
 ----- PERMISSIONS -----
 -----------------------

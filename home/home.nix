@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 
+
 {
   home = {
     username = "ash";
@@ -10,24 +11,17 @@
       kdePackages.qtstyleplugin-kvantum
       catppuccin-kvantum
     ];
-
-    sessionVariables = {
-      XCURSOR_THEME = "Bibata-Modern-Ice";
-      XCURSOR_SIZE = "24";
+    pointerCursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 20;
+      gtk.enable = true;
+      x11.enable = true;
     };
 
   # Safe usage of config files.
   file = { 
-    ".config/Kvantum/Catppuccin-Mocha".source =
-    "${pkgs.catppuccin-kvantum}/share/Kvantum/Catppuccin-Mocha-Mauve";
-
-    ".config/Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=Catppuccin-Mocha
-    '';
-    
     ".config/user".source = ../user.png;
-
     ".config/hypr".source = ../hypr;
     ".config/kitty".source = ../kitty;
     ".config/fish".source = ../fish;
@@ -36,11 +30,11 @@
     ".config/rofimoji.rc".source = ../rofi/rofimoji.rc;
     ".config/starship".source = ../starship;
     ".vim/colors/raindrops.vim".source = ../vim/raindrops.vim;
-    };
   };
+};
 
-    programs = {
-      home-manager.enable = true;
+programs = {
+  home-manager.enable = true;
 
   # Git config.
   git = {
@@ -64,10 +58,17 @@
   home.file.".vim/autoload/plug.vim".source =
     "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
+    catppuccin = {
+      enable = true;
+      autoEnable = true;
+      flavor = "mocha";
+      accent = "mauve";
+    };
+
     gtk = {
       enable = true;
       theme = {
-        name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+        name = "catppuccin-mocha-mauve-standard";
         package = pkgs.catppuccin-gtk.override {
           accents = [ "mauve" ];
           size = "standard";
@@ -75,17 +76,24 @@
           variant = "mocha";
         };
       };
-
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+      gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+      gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
       };
 
       cursorTheme = {
-        name = "Bibata-Modern-Ice";
+        name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
-        size = 24;
+        size = 20;
       };
+    };
+
+    dconf.enable = true;
+    dconf.settings."org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "catppuccin-mocha-mauve-standard";
     };
 
     qt = {
@@ -93,5 +101,4 @@
       platformTheme.name = "gtk3";
       style.name = "kvantum";
     };
-
   }
