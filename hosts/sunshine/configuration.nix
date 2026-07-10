@@ -13,7 +13,7 @@
     ../../modules/fonts.nix
     ../../modules/audio.nix
     ../../modules/burautics.nix
-    ../../modules/coding.nix
+    ../../modules/dev.nix
     ../../modules/gaming.nix
     ../../modules/social.nix
     ../../modules/utils.nix
