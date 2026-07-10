@@ -85,7 +85,6 @@ button:hover {
     color: @subtext0;
     padding: 0 5px;
     border-radius: 999px;
-    border: 2px solid;
     border-color: transparent; 
 }
 
@@ -95,24 +94,19 @@ button:hover {
 
 
 #workspaces button.active {
-    color: @subtext1;
+    color: @red;
     background: @mantle;
-    border: 2px solid;
-    border-color: @red;
     border-radius: 999px;
 }
 
 #workspaces button.active:hover {
     background: @red;
-    border: 2px solid;
-    border-color: @red;
+    color: @mantle;
 }
 
 #workspaces button:hover {
-    border: 2px solid;
     color: @crust;
     background: @red;
-    border-color: @red;
 }
 
 #custom-perf {
