@@ -58,6 +58,10 @@ in
         };
       };
     };
+    vim = {
+      enable = true;
+      extraConfig = builtins.readFile ../../vim/vimrc.vim;
+    };
     rofi.enable = true;
   };
   
