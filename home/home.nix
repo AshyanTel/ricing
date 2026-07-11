@@ -58,6 +58,7 @@ in
         };
       };
     };
+    rofi.enable = true;
   };
   
   catppuccin = {
