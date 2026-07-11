@@ -26,9 +26,4 @@
     adwaita-icon-theme
     adwaita-qt
   ];
-  
-  programs = {
-    rofi.enable = true;
-  };
-  
 }
