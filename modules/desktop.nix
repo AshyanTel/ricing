@@ -29,6 +29,6 @@
   
   programs = {
     rofi.enable = true;
-  }
+  };
   
 }
