@@ -26,8 +26,9 @@
     adwaita-icon-theme
     adwaita-qt
   ];
-
-  environment.sessionVariables = {
-    GTK_ICON_THEME = "Papirus";
-  };
+  
+  programs = {
+    rofi.enable = true;
+  }
+  
 }

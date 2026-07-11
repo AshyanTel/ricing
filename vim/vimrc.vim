@@ -96,13 +96,6 @@ endif
 nmap <silent> <leader>s :set spell!<CR>
 set spelllang=fr_CA
 
-" ===== FILES  =====
-" Auto-reload after modifying the config.
-augroup vimrc
-    au!
-    au bufwritepost ~/.vim/vimrc source $MYVIMRC
-    au bufwritepost ~/ricing/vim/vimrc.vim source $MYVIMRC
-augroup END
 " Rules on certains files types
 autocmd filetype bats set syntax=bash
 autocmd filetype make setlocal noexpandtab
