@@ -54,7 +54,7 @@
       HandlePowerKey = "lock";
       HandlePowerKeyLongPress = "poweroff";
     };
-    enable = { 
+    greetd = { 
       enable = true;
     };
     tlp = {
