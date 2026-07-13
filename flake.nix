@@ -17,7 +17,7 @@
         system = "x86_64-linux";
         modules = [ 
           ./hosts/sunshine/configuration.nix
-
+          inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
