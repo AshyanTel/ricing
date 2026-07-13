@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     prismlauncher
+    moonlight-qt
   ];
   programs.steam = {
     enable = true;
