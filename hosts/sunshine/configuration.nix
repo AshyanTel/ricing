@@ -25,7 +25,6 @@
       fprintAuth = true;
       rules.auth.fprintd.settings.timeout = 10;
     };
-    greetd.fprintAuth = true;
   };
 
   # Bootloader.
@@ -54,7 +53,10 @@
       HandlePowerKey = "lock";
       HandlePowerKeyLongPress = "poweroff";
     };
-    greetd.enable = true;
+    displayManager = { 
+      enable = true;
+      wayland.enable = true;
+    };
     tlp = {
       enable = true;
       settings = {
@@ -81,7 +83,10 @@
 
   };
 
-  catppuccin.regreet.enable = true;
+  catppuccin.sddm = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   hardware.bluetooth.enable = true;
 
@@ -90,7 +95,6 @@
       enable = true;
       withUWSM = true;
     };
-    regreet.enable = true;
     fish.enable = true;
     starship.enable = true;
     dconf.enable = true;
