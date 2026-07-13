@@ -30,16 +30,16 @@ in
     # Usage of vim plugs.
     file.".vim/autoload/plug.vim".source =
       "${pkgs.vimPlugins.vim-plug}/plug.vim";
-
-
-    xdg.configFile = lib.genAttrs configDir (name : {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/dotfiles/${name}";
-    });
+ 
     file = { 
       ".config/user".source = ../user.png;
       ".vim/colors/raindrops.vim".source = ../vim/raindrops.vim;
     };
   };
+
+  xdg.configFile = lib.genAttrs configDir (name : {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/dotfiles/${name}";
+  });
 
   programs = {
     # Enable home manager it self.. trust...
