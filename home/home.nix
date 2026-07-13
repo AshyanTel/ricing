@@ -1,7 +1,8 @@
 { config, lib, pkgs, self, ... }:
 let
-  dotfiles = ../../dotfiles;
-  dotfilesDirs = builtins.attrNames (builtins.readDir dotfiles);
+  dotfilesPath = ../dotfiles;
+  dotfilesDir = "${config.home.homeDirectory}/dots/dotfiles";
+  configDir = builtins.attrNames (builtins.readDir dotfilesPath);
 in
 {
   home = {
@@ -31,8 +32,8 @@ in
       "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
 
-    xdg.configFile = lib.genAttrs dotfilesDirs (name : {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${name}";
+    xdg.configFile = lib.genAttrs configDir (name : {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/dotfiles/${name}";
     });
     file = { 
       ".config/user".source = ../user.png;

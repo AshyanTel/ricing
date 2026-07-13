@@ -42,10 +42,10 @@ if status is-interactive
   end
 
   function nix-rebuild-switch -d "Rebuild"
-    git -C ~/ricing add .
-    git -C ~/ricing commit -m "WIP"
-    sudo nixos-rebuild switch --flake "$HOME/ricing#$HOSTNAME"
-    source ~/ricing/fish/config.fish
+    git -C ~/dots add .
+    git -C ~/dots commit -m "WIP"
+    sudo nixos-rebuild switch --flake "$HOME/dots#$HOSTNAME"
+    source ~/dots/dotsfiles/fish/config.fish
   end
   
   function nix-garbage -d "Delete old generations and rebuild upgrading."
