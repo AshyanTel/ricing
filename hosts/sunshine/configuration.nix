@@ -25,6 +25,7 @@
       fprintAuth = true;
       rules.auth.fprintd.settings.timeout = 10;
     };
+    greetd.fprintAuth = true;
   };
 
   # Bootloader.
@@ -53,9 +54,8 @@
       HandlePowerKey = "lock";
       HandlePowerKeyLongPress = "poweroff";
     };
-    displayManager.sddm = { 
+    enable = { 
       enable = true;
-      wayland.enable = true;
     };
     tlp = {
       enable = true;
@@ -83,17 +83,20 @@
 
   };
 
-  catppuccin.sddm = {
-    enable = true;
-    flavor = "mocha";
-  };
-
   hardware.bluetooth.enable = true;
 
   programs = {
     hyprland = {
       enable = true;
       withUWSM = true;
+    };
+    regreet = {
+      enable = true;
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 16;
+      };
+      extraCss = "./config/regreet/theme.css";
     };
     fish.enable = true;
     starship.enable = true;
