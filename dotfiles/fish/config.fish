@@ -45,7 +45,7 @@ if status is-interactive
     git -C ~/dots add .
     git -C ~/dots commit -m "WIP"
     sudo nixos-rebuild switch --flake "$HOME/dots#$HOSTNAME"
-    source ~/dots/dotsfiles/fish/config.fish
+    source ~/dots/dotfiles/fish/config.fish
   end
   
   function nix-garbage -d "Delete old generations and rebuild upgrading."
