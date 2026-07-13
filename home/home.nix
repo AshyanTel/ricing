@@ -33,7 +33,7 @@ in
  
     file = { 
       ".config/user".source = ../user.png;
-      ".vim/colors/raindrops.vim".source = ../vim/raindrops.vim;
+      ".vim/colors/raindrops.vim".source = ../dotsfiles/vim/raindrops.vim;
     };
   };
 
