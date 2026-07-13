@@ -27,7 +27,7 @@ local notification = "mako"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
 local bar = "waybar"
-local wallpaperSetter = "mpvpaper -o "no-audio loop panscan=1.0" '*' ~/dots/dotfiles/hypr/wallpaper.png"
+local wallpaperSetter = "mpvpaper -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpaper.png"
 
 -------------------
 ---- AUTOSTART ----
