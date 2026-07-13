@@ -96,7 +96,7 @@
         name = "JetBrainsMono Nerd Font";
         size = 16;
       };
-      extraCss = ../../../dotfiles/regreet/theme.css;
+      extraCss = "/home/ash/.config/regreet/theme.css";
     };
     fish.enable = true;
     starship.enable = true;
