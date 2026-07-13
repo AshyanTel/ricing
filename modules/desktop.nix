@@ -7,7 +7,6 @@
     hyprshot
     hyprpicker
     waypaper
-    mpvpaper
     kitty
     waybar
     rofi
