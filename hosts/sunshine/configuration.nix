@@ -21,11 +21,11 @@
 
 
   security.pam.services = {
-    ly.fprintAuth = false;
     hyprlock = {
       fprintAuth = true;
       rules.auth.fprintd.settings.timeout = 10;
     };
+    greetd.fprintAuth = true;
   };
 
   # Bootloader.
@@ -43,19 +43,6 @@
   networking.networkmanager.enable = true;
 
   services = {
-    displayManager.ly = {
-      enable = true;
-      settings = {
-        bg = "0x001E1E2E";
-        fg = "0x00CDD6F4";
-        border_fg = "0x01CBA6F7";
-        error_bg = "0x001E1E2E";
-        error_fg = "0x01F38BA8";
-        bigclock = true;
-        clock = "%H:%M:%S";
-        hide_borders = false;
-      };
-    };
     xserver.xkb = {
       layout = "fr";
       variant = "us";
@@ -67,6 +54,7 @@
       HandlePowerKey = "lock";
       HandlePowerKeyLongPress = "poweroff";
     };
+    greetd.enable = true;
     tlp = {
       enable = true;
       settings = {
@@ -100,6 +88,7 @@
       enable = true;
       withUWSM = true;
     };
+    regreet.enable = true;
     fish.enable = true;
     starship.enable = true;
     dconf.enable = true;
@@ -142,25 +131,7 @@
   # Configure console keymap
   console = { 
     keyMap = "us";
-    colors = [
-      "11111b" # 0 crust
-      "f38ba8" # 1 red
-      "a6e3a1" # 2 green
-      "f9e2af" # 3 yellow
-      "89b4fa" # 4 blue
-      "cba6f7" # 5 mauve
-      "94e2d5" # 6 teal
-      "bac2de" # 7 subtext1
-      "1e1e2e" # 8 vase
-      "f38ba8" # 9 red bright
-      "a6e3a1" # a green bright
-      "f9e2af" # b yellow bright
-      "89b4fa" # c blue bright
-      "cba6f7" # d mauve bright
-      "94e2d5" # e teal bright
-      "a6adc8" # f subtext0
-      ];
-      };
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."ash" = {
     isNormalUser = true;
