@@ -1,7 +1,7 @@
 { config, lib, pkgs, self, ... }:
 let
   dotfilesPath = ../dotfiles;
-  dotfilesDir = "${config.home.homeDirectory}/dots/dotfiles";
+  dotfilesDir = "${config.home.homeDirectory}/dots";
   configDir = builtins.attrNames (builtins.readDir dotfilesPath);
 in
 {
@@ -33,7 +33,6 @@ in
  
     file = { 
       ".config/user".source = ../user.png;
-      ".vim/colors/raindrops.vim".source = ../dotsfiles/vim/raindrops.vim;
     };
   };
 
