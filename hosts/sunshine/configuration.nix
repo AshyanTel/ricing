@@ -81,6 +81,8 @@
 
   };
 
+  catppuccin.regreet.enable = true;
+
   hardware.bluetooth.enable = true;
 
   programs = {
