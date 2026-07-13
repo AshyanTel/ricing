@@ -53,7 +53,7 @@
       HandlePowerKey = "lock";
       HandlePowerKeyLongPress = "poweroff";
     };
-    displayManager = { 
+    displayManager.sddm = { 
       enable = true;
       wayland.enable = true;
     };
