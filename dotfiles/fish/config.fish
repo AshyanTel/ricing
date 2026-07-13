@@ -36,6 +36,15 @@ if status is-interactive
     lazygit
   end
 
+  #--- PC ---#
+  function wake-pc -d "Wake my pc through ssh"
+    ssh homelab 'bash -ic wake-pc'
+  end
+
+  function shut-pc -d "Shutdown my pc through ssh"
+    ssh homelab 'bash -ic shut-pc'
+  end
+
   #--- NIX ALIAS ---#
   function nixd -d "Alias to nix develop -c fish"
     nix develop -c fish
