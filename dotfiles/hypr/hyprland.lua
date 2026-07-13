@@ -27,7 +27,7 @@ local notification = "mako"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
 local bar = "waybar"
-local wallpaperSetter = "waypaper"
+local wallpaperSetter = "mpvpaper -o "no-audio loop panscan=1.0" '*' ~/dots/dotfiles/hypr/wallpaper.png"
 
 -------------------
 ---- AUTOSTART ----
@@ -41,7 +41,7 @@ local wallpaperSetter = "waypaper"
 hl.on("hyprland.start", function()
   --  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
   hl.exec_cmd(notification)
-  hl.exec_cmd(wallpaperSetter .. " --restore")
+  hl.exec_cmd(wallpaperSetter)
   hl.exec_cmd(idler)
   hl.exec_cmd(bar)
 end)
