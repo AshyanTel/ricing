@@ -10,6 +10,7 @@
     mpvpaper
     kitty
     waybar
+    rofi
     rofi-calc
     rofimoji
     rofi-nerdy
