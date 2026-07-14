@@ -17,6 +17,7 @@
     ../../modules/gaming.nix
     ../../modules/social.nix
     ../../modules/utils.nix
+    ../../modules/ctf.nix
   ];
 
 

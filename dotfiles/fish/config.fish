@@ -52,7 +52,7 @@ if status is-interactive
 
   function nix-rebuild-switch -d "Rebuild"
     git -C ~/dots add .
-    git -C ~/dots commit -m "WIP"
+    git -C ~/dots commit -m "WIP : $(date)"
     sudo nixos-rebuild switch --flake "$HOME/dots#$HOSTNAME"
     source ~/dots/dotfiles/fish/config.fish
   end
