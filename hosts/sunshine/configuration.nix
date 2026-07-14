@@ -80,7 +80,7 @@
         USB_AUTOSUSPEND = 1;
       };
     };
-
+    tailscale.enable = true;
   };
 
   hardware.bluetooth.enable = true;
