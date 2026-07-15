@@ -31,7 +31,7 @@ in
       "~/.config/user".source = ../user.png;
       "~/.vim/autoload/plug.vim".source =
         "${pkgs.vimPlugins.vim-plug}/plug.vim";
-      "~/.vimrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/vim/vimrc.vim"; 
+      "~/.vimrc".source = config.lib.file.mkOutOfStoreSymlink "../vim/vimrc.vim"; 
     };
   };
 
