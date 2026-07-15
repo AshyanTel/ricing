@@ -116,10 +116,11 @@ augroup END
 
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
+" Auto reload
 augroup vimrc
 	    au!
 	    au bufwritepost ~/.vim/vimrc source $MYVIMRC
-	    au bufwritepost ~/ricing/vim/vimrc.vim source $MYVIMRC
+	    au bufwritepost ~/dots/vim/vimrc.vim source $MYVIMRC
 augroup END
 
 " ===== PLUGINS =====
