@@ -28,10 +28,10 @@ in
     };
   
     file = { 
-      ".config/user".source = ../user.png;
-      ".vim/autoload/plug.vim".source =
+      "~/.config/user".source = ../user.png;
+      "~/.vim/autoload/plug.vim".source =
         "${pkgs.vimPlugins.vim-plug}/plug.vim";
-      ".vimrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/vim/vimrc.vim"; 
+      "~/.vimrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/vim/vimrc.vim"; 
     };
   };
 
@@ -58,7 +58,7 @@ in
       };
     };
     vim = {
-      enable = true;
+      enable = true;  
     };
     # rofi.enable = true;
   };
