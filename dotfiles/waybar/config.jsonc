@@ -42,7 +42,8 @@
       "bluez_output.B4_84_D5_C4_C9_9D.1": "󱡒 ",
       "bluez_output.B4_84_D5_C4_C9_9D.1-muted": " 󱡒 ",
       "default": ["", " ", " "]
-    }
+    },
+    "max-volume": 15:0 
   },
 
   "hyprland/workspaces": {
