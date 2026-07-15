@@ -116,6 +116,12 @@ augroup END
 
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
+augroup vimrc
+	    au!
+	    au bufwritepost ~/.vim/vimrc source $MYVIMRC
+	    au bufwritepost ~/ricing/vim/vimrc.vim source $MYVIMRC
+augroup END
+
 " ===== PLUGINS =====
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
