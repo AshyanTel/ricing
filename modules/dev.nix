@@ -6,5 +6,6 @@
     vscodium
     vscode
     rust-analyzer
+    jdk25
   ];
 }
