@@ -29,9 +29,9 @@ in
   };
 
   
-  home.file."~/.config/user".source = ../user.png;
-  home.file."~/.vim/autoload/plug.vim".source = "${pkgs.vimPlugins.vim-plug}/plug.vim";
-  home.file."~/.vimrc".source = ../vim/vimrc.vim;
+  home.file.".config/user".source = ../user.png;
+  home.file.".vim/autoload/plug.vim".source = "${pkgs.vimPlugins.vim-plug}/plug.vim";
+  home.file.".vimrc".source = ../vim/vimrc.vim;
 
   xdg.configFile = lib.genAttrs configDir (name : {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/dotfiles/${name}";
