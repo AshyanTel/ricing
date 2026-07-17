@@ -101,7 +101,6 @@
       };
       extraCss = "/home/ash/.config/regreet/theme.css";
     };
-    vim.enable = true;
     fish.enable = true;
     starship.enable = true;
     dconf.enable = true;
