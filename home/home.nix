@@ -14,6 +14,7 @@ in
       pkgs.kdePackages.qtstyleplugin-kvantum
       pkgs.catppuccin-kvantum
       (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
+      (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
     ];
     pointerCursor = {
       name = "Bibata-Modern-Classic";
