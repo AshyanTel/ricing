@@ -11,8 +11,11 @@
     jack.enable = true;
   };
 
+  hardware.pulseaudio.enable = false;
+
   environment.systemPackages = with pkgs; [
     pulseaudio
     pulsemixer
+    tidal-hifi
   ];
 }

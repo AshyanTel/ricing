@@ -41,7 +41,7 @@
       "default-muted": " ",
       "bluez_output.B4_84_D5_C4_C9_9D.1": "󱡒 ",
       "bluez_output.B4_84_D5_C4_C9_9D.1-muted": " 󱡒 ",
-      "default": ["", " ", " "]
+      "default": [" ", " ", " "]
     },
     "max-volume": 150 
   },

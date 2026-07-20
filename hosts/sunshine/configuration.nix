@@ -104,6 +104,13 @@
     fish.enable = true;
     starship.enable = true;
     dconf.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-backgroundremoval
+      ];
+    };
   };
 
   xdg.portal = {
