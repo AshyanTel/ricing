@@ -25,7 +25,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-set shell='/run/current-system/sw/bin/fish -c'
+set shell='fish'
 
 " Buffer Settings
 set clipboard=unnamedplus
