@@ -25,5 +25,6 @@
     papirus-icon-theme
     adwaita-icon-theme
     adwaita-qt
+    streamcontroller
   ];
 }

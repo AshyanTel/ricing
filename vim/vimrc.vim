@@ -25,6 +25,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
+set shell='/run/current-system/sw/bin/fish'
 
 " Buffer Settings
 set clipboard=unnamedplus
@@ -115,13 +116,6 @@ augroup columnLimit
 augroup END
 
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-
-" Auto reload
-augroup vimrc
-	    au!
-	    au bufwritepost ~/.vim/vimrc source $MYVIMRC
-	    au bufwritepost ~/dots/vim/vimrc.vim source $MYVIMRC
-augroup END
 
 " ===== PLUGINS =====
 call plug#begin('~/.vim/plugged')
