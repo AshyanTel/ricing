@@ -122,11 +122,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-commentary'
     Plug 'rust-lang/rust.vim'
-    Plug 'prabirshrestha/vim-lsp'
     Plug 'dense-analysis/ale'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'rhysd/vim-lsp-ale'
-    Plug 'dense-analysis/ale'
 
     " Pandoc
     Plug 'vim-pandoc/vim-pandoc'
@@ -135,4 +133,6 @@ call plug#begin('~/.vim/plugged')
     " fzf integration
     Plug 'junegunn/fzf', { 'do': {  -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    
+    let g:ale_linters = {'nix': []}
 call plug#end()

@@ -3,16 +3,28 @@
   "height": 23,
   "margin-bottom": 0,
   "modules-left": [],
-  "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "bluetooth", "network", "clock"],
+  "modules-center": ["hyprland/workspaces", "custom/perf", "pulseaudio", "battery", "bluetooth", "network", "clock", "custom/notifs"],
   "modules-right": [],
   "spacing": 0,
 
   "custom/perf": {
-    "exec": "sh ~/ricing/waybar/perf.sh",
+    "exec": "sh ~/.config/waybar/perf.sh",
     "interval": 2,
     "return-type": "json",
     "tooltip": true,
     "on-click": "kitty btop"
+  },
+  
+  "custom/notifs": {
+    "format": "{}",
+    "return-type": "json",
+    "exec-if" : "which makoctl",
+    "exec": "~/.config/waybar/mako-notifs.sh",
+    "on-click": "makoctl restore",
+    "on-click-right" : "~/.config/waybar/mako-history-clear.sh",
+    "signal": 8,
+    "interval": 5,
+    "tooltip": true
   },
 
   "bluetooth": {

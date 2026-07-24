@@ -57,6 +57,7 @@ button:hover {
 }
 
 #custom-perf,
+#custom-notifs,
 #network,
 #pulseaudio,
 #battery,
@@ -71,6 +72,7 @@ button:hover {
 
 #workspaces:hover,
 #custom-perf:hover,
+#custom-notifs:hover,
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
@@ -175,6 +177,14 @@ button:hover {
     background: @sapphire;
 }
 
+#custom-notifs {
+    color: @mauve;
+}
+
+#custom-notifs:hover {
+    background: @mauve;
+}
+
 tooltip {
     background: @base;
     border: 2px solid @crust;
@@ -188,6 +198,7 @@ tooltip label {
 
 #workspaces,
 #custom-perf,
+#custom-notifs,
 #network,
 #pulseaudio,
 #battery,

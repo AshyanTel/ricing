@@ -99,7 +99,28 @@
         name = "JetBrainsMono Nerd Font";
         size = 16;
       };
-      extraCss = "/home/ash/.config/regreet/theme.css";
+
+      theme = {
+        name = "catppuccin-mocha-mauve-standard";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "mauve" ];
+          size = "standard";
+          tweaks = [ ];
+          variant = "mocha";
+        };
+      };
+
+      cursorTheme = {
+        name = "Bibata-Modern-Classic";
+        package = pkgs.bibata-cursors;
+      };
+
+      settings = {
+        GTK = {
+         application_prefer_dark_theme = true;
+        };
+      };
+      extraCss = builtins.readFile ../../regreet/theme.css;
     };
     fish.enable = true;
     starship.enable = true;
@@ -168,10 +189,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    fprintd
-    brightnessctl
-  ];
+  environment = {
+    etc."greetd/wallpaper.png".source = ../../dotfiles/hypr/wallpaper.png;
+    systemPackages = with pkgs; [
+      fprintd
+      brightnessctl
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

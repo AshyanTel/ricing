@@ -26,5 +26,6 @@
     adwaita-icon-theme
     adwaita-qt
     streamcontroller
+    jq
   ];
 }

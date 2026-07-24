@@ -11,7 +11,7 @@ local powerM = "rofi -show p -modi p:rofi-power-menu"
 local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji -a copy"
 local sshM = "rofi -show ssh"
 local calcM = "rofi -show calc"
-local winM = "rofi -show window"
+local winM = "rofi -show window -show-icons"
 -- Coding, devs
 local terminal = "kitty"
 local text = terminal .. " vim"
@@ -281,12 +281,12 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(discordClient))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + Y", cycle_layout) -- Cycle layouts: dwindle -> master -> scrolling
-hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd(lockScreen)) -- Lock screen immediately
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(lockScreen)) -- Lock screen immediately
 
 -- Menus
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd(powerM))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(sshM))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(powerM))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(winM))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(calcM))
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(emojiM))
