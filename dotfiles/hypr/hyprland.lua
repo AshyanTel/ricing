@@ -8,7 +8,7 @@ require("animations")
 -- Menus
 local menu = "rofi -show drun -show-icons"
 local powerM = "rofi -show p -modi p:rofi-power-menu"
-local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji -a copy"
+local emojiM = "rofi -modi 'emoji:rofimoji' -show emoji -a type"
 local sshM = "rofi -show ssh"
 local calcM = "rofi -show calc"
 local winM = "rofi -show window -show-icons"

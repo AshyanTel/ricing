@@ -21,12 +21,20 @@
   ];
 
 
-  security.pam.services = {
-    hyprlock = {
-      fprintAuth = true;
-      rules.auth.fprintd.settings.timeout = 10;
+  security = { 
+    pam.services = {
+      hyprlock = {
+        fprintAuth = true;
+        rules.auth.fprintd.settings.timeout = 10;
+      };
+      greetd.fprintAuth = true;
     };
-    greetd.fprintAuth = true;
+    sudo = {
+      enable = true;
+      extraConfig = ''
+        Defaults timestamp_timeout=0
+      '';
+    };  
   };
 
   virtualisation.docker.enable = true;

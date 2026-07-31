@@ -58,6 +58,7 @@ inoremap { {}<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 inoremap ` ``<Left>
+inoremap < <><left>
 
 "
 inoremap <expr> <BS> DeletePair()
@@ -75,8 +76,9 @@ function! DeletePair()
         \  (prev == '{' && next == '}') ||
         \  (prev == '"' && next == '"') ||
         \  (prev == "'" && next == "'") ||
-        \  (prev == '`' && next == '`')
-            return "\<Del>\<BS>"
+        \  (prev == '`' && next == '`') ||
+        \  (prev == '<' && next == '>')
+          return "\<Del>\<BS>"
         endif
     endif
 
@@ -93,10 +95,6 @@ if has("termguicolors")
     set termguicolors
 endif
 
-" <,+s> Turn on spell check
-nmap <silent> <leader>s :set spell!<CR>
-set spelllang=fr_CA
-
 " Rules on certains files types
 autocmd filetype bats set syntax=bash
 autocmd filetype make setlocal noexpandtab
@@ -107,10 +105,10 @@ autocmd filetype python set tabstop=4 shiftwidth=4
 augroup columnLimit
   autocmd!
   autocmd BufEnter,WinEnter,FileType cpp
-        \ highlight CollumnLimit ctermbg=Red guibg=Red
-  let collumnLimit = 121
+        \ highlight ColumnLimit ctermbg=Red guibg=Red
+  let columnLimit = 121
   let pattern =
-        \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+        \ '\%<' . (columnLimit+1) . 'v.\%>' . columnLimit . 'v'
   autocmd BufEnter,WinEnter,FileType cpp
         \ let w:m1=matchadd('ColumnLimit', pattern, -1)
 augroup END

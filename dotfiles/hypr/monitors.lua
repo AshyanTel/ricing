@@ -17,7 +17,7 @@ hl.monitor({
 hl.monitor({
     output = "desc:Microstep MSI G273Q CA8A421C00835",
     mode = "2560x1440@164.84",
-    position = "auto-center-up",
+    position = "auto-center-right",
     scale = 1
 })
 hl.monitor({
