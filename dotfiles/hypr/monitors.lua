@@ -36,14 +36,23 @@ hl.monitor({
     output = "DP-7",
     mode = "1920x1080@60",
     position = "auto-center-up",
-    scale = 1
+    scale = 1,
+    disabled = true
+})
+hl.monitor({
+    output = "DP-8",
+    mode = "1920x1080@60",
+    position = "auto-center-up",
+    scale = 1,
+    disabled = true
 })
 hl.monitor({
     output = "DP-9",
     mode = "1920x1080@60",
     position = "auto-center-right",
     scale = 1,
-    transform = 1
+    transform = 1,
+    disabled = true
 })
 hl.monitor({
     output = "desc:Toshiba America Info Systems Inc TOSHIBA-TV 0x01010101",

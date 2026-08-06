@@ -25,7 +25,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-set shell='fish'
+set shell='/run/current-system/sw/bin/fish'
 
 " Buffer Settings
 set clipboard=unnamedplus
@@ -90,6 +90,7 @@ inoremap <expr> ' getline('.')[col('.') - 1] == "'" ? "\<Right>" : "''\<Left>"
 inoremap <expr> ) getline('.')[col('.') - 1] == ')' ? "\<Right>" : ")"
 inoremap <expr> ] getline('.')[col('.') - 1] == ']' ? "\<Right>" : "]"
 inoremap <expr> } getline('.')[col('.') - 1] == '}' ? "\<Right>" : "}"
+inoremap <expr> > getline('.')[col('.') - 1] == '>' ? "\<Right>" : ">"
 
 if has("termguicolors")
     set termguicolors
@@ -134,3 +135,5 @@ call plug#begin('~/.vim/plugged')
     
     let g:ale_linters = {'nix': []}
 call plug#end()
+
+highlight link SpecialComment Comment
