@@ -20,11 +20,11 @@ if status is-interactive
   end
 
   function ls -d "Alias to exa -l --git --icons $args"
-    exa -l --git --icons $argv
+    exa -l --git --icons auto $argv
   end
 
   function la -d "Alias to exa -lA --git --icons $args"
-    exa -lA --git --icons $argv
+    exa -lA --git --icons auto $argv
   end
 
   #--- GIT ALIAS ---#
@@ -47,7 +47,7 @@ if status is-interactive
 
   #--- NIX ALIAS ---#
   function nixd -d "Alias to nix develop -c fish"
-    nix develop -c fish
+    nix develop -c fish $args
   end
 
   function nix-rebuild-switch -d "Rebuild"

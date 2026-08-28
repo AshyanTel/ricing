@@ -68,6 +68,36 @@
     greetd = { 
       enable = true;
     };
+    displayManager.regreet = {
+        enable = true;
+        font = {
+          name = "JetBrainsMono Nerd Font";
+          size = 16;
+        };
+
+        theme = {
+          name = "catppuccin-mocha-mauve-standard";
+          package = pkgs.catppuccin-gtk.override {
+            accents = [ "mauve" ];
+            size = "standard";
+            tweaks = [ ];
+            variant = "mocha";
+          };
+        };
+
+        cursorTheme = {
+          name = "Bibata-Modern-Classic";
+          package = pkgs.bibata-cursors;
+        };
+
+        settings = {
+          GTK = {
+           application_prefer_dark_theme = true;
+          };
+        };
+        extraCss = builtins.readFile ../../regreet/theme.css;
+      };
+
     tlp = {
       enable = true;
       settings = {
@@ -100,35 +130,6 @@
     hyprland = {
       enable = true;
       withUWSM = true;
-    };
-    regreet = {
-      enable = true;
-      font = {
-        name = "JetBrainsMono Nerd Font";
-        size = 16;
-      };
-
-      theme = {
-        name = "catppuccin-mocha-mauve-standard";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "mauve" ];
-          size = "standard";
-          tweaks = [ ];
-          variant = "mocha";
-        };
-      };
-
-      cursorTheme = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
-      };
-
-      settings = {
-        GTK = {
-         application_prefer_dark_theme = true;
-        };
-      };
-      extraCss = builtins.readFile ../../regreet/theme.css;
     };
     fish.enable = true;
     starship.enable = true;

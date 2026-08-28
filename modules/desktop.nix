@@ -18,6 +18,7 @@
     pavucontrol
     bluetui
     firefox
+    librewolf
     yazi
     yaziPlugins.git
     yaziPlugins.diff

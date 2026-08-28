@@ -9,7 +9,7 @@ let
 
   src = fetchurl {
     url = "https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup-x86_64.AppImage";
-    sha256 = "sha256-QtDgAYEIVMPLslxnP2yMFZKazDAWCDGMNH/HrXVc9Zo=";
+    sha256 = "sha256-0JJCTEpiGABy8yetwdZpGdxR0vwLBFY9ktdDp9fNKr4=";
   };
 
   appimageContents = appimageTools.extractType2 { inherit pname version src; };

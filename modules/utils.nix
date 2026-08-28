@@ -9,5 +9,6 @@
     tldr
     killall
     tree
+    nix-index
   ];
 }

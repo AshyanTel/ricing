@@ -4,6 +4,7 @@ syntax enable
 filetype plugin indent on
 colorscheme catppuccin
 let mapleader=','
+set nospell
 
 " set visualbell
 set formatoptions=tcroql
@@ -50,47 +51,6 @@ nnoremap <leader>x :wqa<CR>
 set whichwrap+=<,>,h,l
 " Paste doesn't move cursor.
 nnoremap p p`[
-
-" Better opening 
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
-inoremap < <><left>
-
-"
-inoremap <expr> <BS> DeletePair()
-
-function! DeletePair()
-    let col = col('.')
-    let line = getline('.')
-
-    if col > 1
-        let prev = line[col - 2]
-        let next = col <= len(line) ? line[col - 1] : ''
-
-        if (prev == '(' && next == ')') ||
-        \  (prev == '[' && next == ']') ||
-        \  (prev == '{' && next == '}') ||
-        \  (prev == '"' && next == '"') ||
-        \  (prev == "'" && next == "'") ||
-        \  (prev == '`' && next == '`') ||
-        \  (prev == '<' && next == '>')
-          return "\<Del>\<BS>"
-        endif
-    endif
-
-    return "\<BS>"
-endfunction
-
-inoremap <expr> " getline('.')[col('.') - 1] == '"' ? "\<Right>" : "\"\"\<Left>"
-inoremap <expr> ' getline('.')[col('.') - 1] == "'" ? "\<Right>" : "''\<Left>"
-inoremap <expr> ) getline('.')[col('.') - 1] == ')' ? "\<Right>" : ")"
-inoremap <expr> ] getline('.')[col('.') - 1] == ']' ? "\<Right>" : "]"
-inoremap <expr> } getline('.')[col('.') - 1] == '}' ? "\<Right>" : "}"
-inoremap <expr> > getline('.')[col('.') - 1] == '>' ? "\<Right>" : ">"
 
 if has("termguicolors")
     set termguicolors
