@@ -192,5 +192,15 @@ format = '[$indicator]($style) '
 style = 'blue bold'
 disabled = false
 
+[package]
+symbol = '󰏖 '
+
 [cmake]
-symbol = ' '
+symbol = '󱗾 '
+
+[gradle]
+symbol = '󰟆 '
+
+[java]
+style = 'red bold'
+symbol = ' '

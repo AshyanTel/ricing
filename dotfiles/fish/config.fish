@@ -4,8 +4,8 @@ if status is-interactive
   switch $TERM
   case "linux"
     set -x STARSHIP_CONFIG $HOME/.config/starship/starship_tui.toml
-  case "xterm-256color"
-    set -x STARSHIP_CONFIG $HOME/.config/starship/starship_code.toml
+    #case "xterm-256color"
+    #set -x STARSHIP_CONFIG $HOME/.config/starship/starship_code.toml
   case "*"
     set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
   end
@@ -48,6 +48,10 @@ if status is-interactive
   #--- NIX ALIAS ---#
   function nixd -d "Alias to nix develop -c fish"
     nix develop -c fish $args
+  end
+  
+  function nixb -d "Alias to nix build -o target"
+    nix build -o target $args
   end
 
   function nix-rebuild-switch -d "Rebuild"

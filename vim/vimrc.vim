@@ -5,6 +5,7 @@ filetype plugin indent on
 colorscheme catppuccin
 let mapleader=','
 set nospell
+let g:pandoc#spell#enable_by_default = 0
 
 " set visualbell
 set formatoptions=tcroql

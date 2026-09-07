@@ -27,7 +27,7 @@
             home-manager.users.ash = {
               imports = [
                 catppuccin.homeModules.catppuccin
-                ./home/home.nix
+                ./home.nix
               ];
             };
             

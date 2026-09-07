@@ -1,6 +1,6 @@
 { config, lib, pkgs, self, ... }:
 let
-  dotfilesPath = ../dotfiles;
+  dotfilesPath = ./dotfiles;
   dotfilesDir = "${config.home.homeDirectory}/dots";
   configDir = builtins.attrNames (builtins.readDir dotfilesPath);
 in
@@ -15,6 +15,7 @@ in
       pkgs.catppuccin-kvantum
       (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
       (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
+      (pkgs.callPackage "${self}/pkgs/rars.nix" { })
     ];
     pointerCursor = {
       name = "Bibata-Modern-Classic";
@@ -30,12 +31,20 @@ in
   };
 
   
-  home.file.".config/user".source = ../user.png;
+  home.file.".config/user".source = ./user.png;
   home.file.".vim/autoload/plug.vim".source = "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
   xdg.configFile = lib.genAttrs configDir (name : {
     source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/dotfiles/${name}";
   });
+
+  xdg.desktopEntries.rars = {
+    name = "RARS";
+    exec = "rars";
+    icon = "utilities-terminal";
+    comment = "RISC-V Assembler and Runtime Simulator";
+    categories = [ "Development" ];
+  };
 
   programs = {
     # Enable home manager it self.. trust...
@@ -57,9 +66,12 @@ in
     };
     vim = {
       enable = true;  
-      extraConfig = builtins.readFile ../vim/vimrc.vim;
+      extraConfig = builtins.readFile ./vim/vimrc.vim;
     };
-    # rofi.enable = true;
+    quickshell = {
+      enable = true;
+
+    };
   };
   
   catppuccin = {
