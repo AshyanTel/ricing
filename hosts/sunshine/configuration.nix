@@ -121,6 +121,7 @@
         USB_AUTOSUSPEND = 1;
       };
     };
+    upower.enable = true;
     tailscale.enable = true;
   };
 

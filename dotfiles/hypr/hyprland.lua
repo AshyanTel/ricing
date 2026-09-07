@@ -26,8 +26,8 @@ local screenshotTool = "hyprshot"
 local notification = "mako"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
-local bar = "waybar"
-local wallpaperSetter = "mpvpaper -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpaper.png"
+local bar = "quickshell"
+local wallpaperSetter = "mpvpaper -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpapers/steam-autumn-sale-2024-moewalls-com.mp4"
 
 -------------------
 ---- AUTOSTART ----
@@ -87,7 +87,7 @@ hl.env("HYPRCURSOR_SIZE", "20")
 hl.config({
   general = {
     gaps_in = 2,
-    gaps_out = 0,
+    gaps_out = 10,
 
     border_size = 2,
 
@@ -114,7 +114,7 @@ hl.config({
 
     -- Change transparency of focused and unfocused windows
     active_opacity = 1,
-    inactive_opacity = 1,
+    inactive_opacity = 0.9,
 
     shadow = {
       enabled = true,
