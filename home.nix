@@ -16,6 +16,7 @@ in
       (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
       (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
       (pkgs.callPackage "${self}/pkgs/rars.nix" { })
+      (pkgs.callPackage "${self}/pkgs/bluej.nix" { })
     ];
     pointerCursor = {
       name = "Bibata-Modern-Classic";

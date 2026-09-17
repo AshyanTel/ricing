@@ -200,7 +200,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    etc."greetd/wallpaper.png".source = ../../dotfiles/hypr/wallpaper.png;
+    etc."greetd/wallpaper.png".source = ../../dotfiles/hypr/wallpapers/wallpaper.png;
     systemPackages = with pkgs; [
       fprintd
       brightnessctl

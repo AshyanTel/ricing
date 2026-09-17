@@ -23,11 +23,10 @@ local discordClient = "vesktop"
 local musicPlayer = "tidal-hifi"
 -- Utilities
 local screenshotTool = "hyprshot"
-local notification = "mako"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
 local bar = "quickshell"
-local wallpaperSetter = "mpvpaper -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpapers/steam-autumn-sale-2024-moewalls-com.mp4"
+local wallpaperSetter = "mpvpaper --auto-mode -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpapers/steam-autumn-sale-2024-moewalls-com.mp4"
 
 -------------------
 ---- AUTOSTART ----
@@ -40,7 +39,6 @@ local wallpaperSetter = "mpvpaper -o \"no-audio loop panscan=1.0\" '*' ~/dots/do
 --
 hl.on("hyprland.start", function()
   --  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
-  hl.exec_cmd(notification)
   hl.exec_cmd(wallpaperSetter)
   hl.exec_cmd(idler)
   hl.exec_cmd(bar)

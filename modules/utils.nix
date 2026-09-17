@@ -10,5 +10,7 @@
     killall
     tree
     nix-index
+    tmux
+    direnv
   ];
 }
