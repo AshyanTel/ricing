@@ -40,7 +40,7 @@ Item {
 
   Process {
     id: tempProc
-    command: ["cat", "/sys/class/hwmon/hwmon4/temp1_input"]
+    command: ["cat", "/sys/class/thermal/thermal_zone*/temp"]
     stdout: SplitParser {
       onRead: (data) => {
         if (!data) return

@@ -6,6 +6,7 @@ colorscheme catppuccin
 let mapleader=','
 set nospell
 let g:pandoc#spell#enable_by_default = 0
+set background=dark
 
 " set visualbell
 set formatoptions=tcroql
@@ -17,9 +18,9 @@ set signcolumn=yes
 " Tab settings
 set autoindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " Search settings
 set hlsearch
@@ -60,7 +61,7 @@ endif
 " Rules on certains files types
 autocmd filetype bats set syntax=bash
 autocmd filetype make setlocal noexpandtab
-autocmd filetype c,cpp,rb,erb,java set tabstop=2 shiftwidth=2
+autocmd filetype c,cpp,rb,erb set tabstop=2 shiftwidth=2
 autocmd filetype python set tabstop=4 shiftwidth=4
 
 " +120 character line warning
@@ -95,6 +96,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     
     let g:ale_linters = {'nix': []}
+    let g:ale_java_javac_sourcepath = 'src'
+
 call plug#end()
 
 highlight link SpecialComment Comment

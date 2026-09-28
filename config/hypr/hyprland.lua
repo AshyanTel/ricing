@@ -26,7 +26,7 @@ local screenshotTool = "hyprshot"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
 local bar = "quickshell"
-local wallpaperSetter = "mpvpaper --auto-mode -o \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpapers/steam-autumn-sale-2024-moewalls-com.mp4"
+local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/dots/dotfiles/hypr/wallpapers/teto.jpg ; mpvpaper -pfo \"no-audio loop panscan=1.0\" HDMI-A-1 ~/dotfiles/hypr/wallpaper/steam-autumn-sale-2024-moewalls-com.mp4"
 
 -------------------
 ---- AUTOSTART ----
@@ -91,10 +91,10 @@ hl.config({
 
     col = {
       active_border = {
-        colors = { "rgba(cba6f7ee)", "rgba(cba6f7aa)" },
-        angle = 45,
+        colors = { "rgba(e24955ff)", "rgba(e96369ff)" },
+        angle = 90,
       },
-      inactive_border = "rgba(11111baa)",
+      inactive_border = "rgba(111111aa)",
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -112,7 +112,7 @@ hl.config({
 
     -- Change transparency of focused and unfocused windows
     active_opacity = 1,
-    inactive_opacity = 0.9,
+    inactive_opacity = 1,
 
     shadow = {
       enabled = true,

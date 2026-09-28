@@ -10,7 +10,13 @@
     killall
     tree
     nix-index
-    tmux
     direnv
   ];
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set -g mouse on 
+    '';
+  };
 }

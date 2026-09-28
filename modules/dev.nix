@@ -7,5 +7,6 @@
     vscode
     rust-analyzer
     jetbrains.idea
+    jdk
   ];
 }
