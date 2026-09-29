@@ -15,7 +15,7 @@ in
       pkgs.catppuccin-kvantum
       (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
       (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
-      (pkgs.callPackage "${self}/pkgs/rars.nix" { })
+      (pkgs.callPackage "${self}/pkgs/rarsm.nix" { })
       (pkgs.callPackage "${self}/pkgs/bluej.nix" { })
     ];
     pointerCursor = {
@@ -36,7 +36,7 @@ in
   home.file.".vim/autoload/plug.vim".source = "${pkgs.vimPlugins.vim-plug}/plug.vim";
 
   xdg.configFile = lib.genAttrs configDir (name : {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/${configPath}/${name}";
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/config/${name}";
   });
 
   xdg.desktopEntries.rars = {
