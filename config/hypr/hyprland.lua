@@ -14,19 +14,17 @@ local calcM = "rofi -show calc"
 local winM = "rofi -show window -show-icons"
 -- Coding, devs
 local terminal = "kitty"
-local text = terminal .. " vim"
-local ide = "codium"
+
 -- General apps
 local fileManager = "yazi"
 local browser = "firefox"
 local discordClient = "vesktop"
-local musicPlayer = "tidal-hifi"
 -- Utilities
 local screenshotTool = "hyprshot"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
 local bar = "quickshell"
-local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.config/wallpapers/teto.jpg ; mpvpaper -pfo \"no-audio loop panscan=1.0\" HDMI-A-1 ~/.config/wallpaper/steam-autumn-sale-2024-moewalls-com.mp4"
+local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.config/wallpaper.png"
 
 -------------------
 ---- AUTOSTART ----
@@ -38,10 +36,10 @@ local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.conf
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  --  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
-  hl.exec_cmd(wallpaperSetter)
-  hl.exec_cmd(idler)
-  hl.exec_cmd(bar)
+--  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
+hl.exec_cmd(wallpaperSetter)
+hl.exec_cmd(idler)
+hl.exec_cmd(bar)
 end)
 
 -------------------------------
@@ -103,7 +101,7 @@ hl.config({
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = false,
 
-    layout = "dwindle",
+    layout = "scrolling",
   },
 
   decoration = {
@@ -230,7 +228,7 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Layout cycling function
-local current_layout = "dwindle"
+local current_layout = "scrolling"
 local function cycle_layout()
   if current_layout == "dwindle" then
     current_layout = "master"
@@ -287,7 +285,9 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(sshM))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(winM))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(calcM))
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(emojiM))
-
+hl.bind(mainMod .. " + N", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 -- Screenshot
 hl.bind("PRINT", hl.dsp.exec_cmd(screenshotTool .. " -z --clipboard-only -m output"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd(screenshotTool .. " -z --clipboard-only -m region"))

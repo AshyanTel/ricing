@@ -25,6 +25,11 @@ vim.lsp.config("jdtls", {
     cmd = { "jdtls" },
     filetypes = { "java" },
     root_markers = { ".idea", "pom.xml", "build.gradle", "flake.nix", ".git" },
+    settings = {
+        java = {
+            sourcePaths = { "src" },
+        },
+    },
 })
 vim.lsp.enable("jdtls")
 

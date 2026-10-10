@@ -19,10 +19,6 @@
     bluetui
     firefox
     librewolf
-    yazi
-    yaziPlugins.git
-    yaziPlugins.diff
-    yaziPlugins.office
     papirus-icon-theme
     adwaita-icon-theme
     adwaita-qt

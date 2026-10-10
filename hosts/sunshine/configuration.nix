@@ -186,7 +186,7 @@
     isNormalUser = true;
     description = "ash";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
+    packages = [
     ];
     shell = pkgs.fish;
   };
@@ -199,7 +199,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    etc."greetd/wallpaper.png".source = ../../config/wallpapers/teto.png;
+    etc."greetd/wallpaper.png".source = config.home-manager.users.ash.wallpaper;
     systemPackages = with pkgs; [
       fprintd
       brightnessctl

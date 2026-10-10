@@ -28,3 +28,5 @@ opt.foldmethod = "indent"
 opt.foldenable = false
 
 opt.whichwrap:append("<,>,h,l")
+
+opt.scrolloff = 10

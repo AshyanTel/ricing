@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    hyprland-src = {
+      url = "github:hyprwm/Hyprland";
+      flake = false;
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin,...}@inputs: {

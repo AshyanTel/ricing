@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    libreoffice-fresh
+    libreoffice
     obsidian
     onlyoffice-desktopeditors
   ];
