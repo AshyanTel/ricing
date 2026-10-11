@@ -23,7 +23,7 @@ local discordClient = "vesktop"
 local screenshotTool = "hyprshot"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
-local bar = "quickshell"
+local bar = "waybar"
 local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.config/wallpaper.png"
 
 -------------------
@@ -82,17 +82,17 @@ hl.env("HYPRCURSOR_SIZE", "20")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   general = {
-    gaps_in = 2,
-    gaps_out = 10,
+    gaps_in = 6,
+    gaps_out = 8,
 
     border_size = 2,
 
     col = {
       active_border = {
-        colors = { "rgba(e24955ff)", "rgba(e96369ff)" },
+        colors = { "rgba(cba6f7ff)", "rgba(b4befedd)" },
         angle = 90,
       },
-      inactive_border = "rgba(111111aa)",
+      inactive_border = "rgba(313244ff)",
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -105,7 +105,7 @@ hl.config({
   },
 
   decoration = {
-    rounding = 10,
+    rounding = 0,
     rounding_power = 2,
 
     -- Change transparency of focused and unfocused windows
@@ -116,7 +116,7 @@ hl.config({
       enabled = true,
       range = 4,
       render_power = 3,
-      color = 0xee1a1a1a,
+      color = "rgba(11111bff)",
     },
 
     blur = {
@@ -258,7 +258,7 @@ end
 
 -- Example binds, see https:y//wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(
   mainMod .. " + M",
@@ -416,7 +416,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
 
 -- Example window rules that are useful
 
-local suppressMaximizeRule = hl.window_rule({
+hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
   name = "suppress-maximize-events",
   match = {
