@@ -47,5 +47,12 @@ vim.lsp.config("rust_analyzer", {
 })
 vim.lsp.enable("rust_analyzer")
 
+vim.lsp.config("marksman", {
+    cmd = { "marksman", "server" },
+    filetypes = { "markdown" },
+    root_markers = { ".marksman.toml", ".obsidian", ".git" },
+})
+vim.lsp.enable("marksman")
+
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)

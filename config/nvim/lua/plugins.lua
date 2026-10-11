@@ -21,7 +21,8 @@ require("lazy").setup({
             require("catppuccin").setup(opts)
             vim.cmd.colorscheme("catppuccin")
         end,
-    },{
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
         lazy = false,
@@ -30,17 +31,121 @@ require("lazy").setup({
             require("nvim-treesitter").install({
             "markdown", "markdown_inline",
             "python", "lua", "java", "cpp", "nix",
-            "bash", "fish", "rust", "ruby"
+            "bash", "fish", "rust", "ruby",
+            "markdown", "markdown_inline", "html",
+            "yaml", "toml", "latex", "json",
             })
         end,
     },
     {
-        "iamcco/markdown-preview.nvim",
+        "MeanderingProgrammer/render-markdown.nvim",
         ft = { "markdown" },
-        build = "cd app && npm install",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {},
+    },
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                markdown = { "prettier" },
+            },
+            formatters = {
+                prettier = {
+                    prepend_args = {
+                        "--prose-wrap", "preserve",
+                        "--print-width", "80",
+                    },
+                },
+            },
+        },
+    },
+    {
+        "obsidian-nvim/obsidian.nvim",
+        version = "*",
+        ft = "markdown",
+        keys = {
+            { "<leader>oo", "<cmd>Obsidian quick_switch<cr>",      desc = "Obsidian: Open note." },
+            { "<leader>os", "<cmd>Obsidian search<cr>",            desc = "Obsidian: Search." },
+            { "<leader>on", "<cmd>Obsidian new_from_template<cr>", desc = "Obsidian: New note." },
+            { "<leader>ot", "<cmd>Obsidian today<cr>",             desc = "Obsidian: Open today notes." },
+            { "<leader>ob", "<cmd>Obsidian backlinks<cr>",         desc = "Obsidian: Open backlinks." },
+            { "<leader>ol", "<cmd>Obsidian links<cr>",             desc = "Obsidian: Open links." },
+            { "<leader>oT", "<cmd>Obsidian template<cr>",          desc = "Obsidian: Use a template." },
+        },
         init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "markdown",
+                callback = function()
+                    vim.opt_local.conceallevel = 2
+                end,
+            })
         end,
+        opts = {
+            legacy_commands = false,
+            note_id_func = function(title)
+                if title == nil then
+                    return tostring(os.time())
+                end
+                local map = {
+                    ["à"] = "a", ["â"] = "a",  ["ä"] = "a",
+                    ["é"] = "e", ["è"] = "e", ["ê"] = "e", ["ë"] = "e",
+                    ["î"] = "i", ["ï"] = "i",
+                    ["ô"] = "o", ["ö"] = "o",
+                    ["ù"] = "u", ["û"] = "u", ["ü"] = "u",
+                    ["ç"] = "c", ["œ"] = "oe", ["æ"] = "ae"
+                }
+                local slug = vim.fn.tolower(title)
+                slug = slug:gsub("[%z\1-\127\194-\244][\128-\191]*", function(c)
+                    return map[c] or c
+                end)
+                slug = slug:gsub(" ","-"):gsub("[^a-z0-9-]", "")
+                return slug
+            end,
+            workspaces = {
+                { name = "vault", path = "~/vault" },
+            },
+            templates = {
+                folder = "templates",
+            },
+        },
+    },
+    {
+        "mfussenegger/nvim-lint",
+        config = function()
+            require("lint").linters_by_ft = {
+                markdown = { "markdownlint-cli2" },
+            }
+            vim.api.nvim_create_autocmd(
+                { "BufReadPost", "BufWritePost", "InsertLeave" },
+                {
+                    callback = function()
+                        require("lint").try_lint()
+                    end,
+                }
+            )
+        end,
+    },
+    {
+        "junegunn/vim-easy-align",
+        cmd = "EasyAlign",
+        keys = {
+            { "<leader>=", ":EasyAlign ", mode = "x", desc = "Align" },
+        },
+    },
+    {
+        "dhruvasagar/vim-table-mode",
+        ft = "markdown",
+        init = function()
+            vim.g.table_mode_corner = "|"
+        end,
+    },
+    {
+        "ibhagwan/fzf-lua",
+        dependecies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
     },
     {
         "saghen/blink.cmp",
@@ -90,7 +195,6 @@ require("lazy").setup({
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {
-
         },
         config = function()
             local hooks = require("ibl.hooks")

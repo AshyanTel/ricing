@@ -33,12 +33,15 @@ in
     homeDirectory = "/home/ash";
     stateVersion = "26.05";
     packages =  [
-      pkgs.libsForQt5.qtstyleplugin-kvantum
+        pkgs.libsForQt5.qtstyleplugin-kvantum
         pkgs.kdePackages.qtstyleplugin-kvantum
         pkgs.catppuccin-kvantum
 
         pkgs.neovim
         pkgs.tree-sitter
+        pkgs.prettier
+        pkgs.markdownlint-cli2
+        pkgs.marksman
         pkgs.gcc
         pkgs.lua-language-server
         pkgs.jdt-language-server
@@ -50,6 +53,8 @@ in
         pkgs.nodejs
         pkgs.cargo
         pkgs.rustc
+        pkgs.python3
+        pkgs.python3Packages.pylatexenc
 
 
         (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
