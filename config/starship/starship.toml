@@ -124,6 +124,7 @@ staged = '󰝒 '
 renamed = '󰪹 '
 deleted = ' '
 typechanged = '󱁹 '
+disabled = false
 
 [vcs]
 order = [ "git" ]

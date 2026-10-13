@@ -145,6 +145,8 @@ in
           set -g window-size smallest
           set -g focus-events on
           set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+          set -g default-terminal "tmux-256color"
+          set -as terminal-features ",*:RGB"
           '';
       };
       yazi = {

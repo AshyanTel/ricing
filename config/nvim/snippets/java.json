@@ -1,0 +1,7 @@
+{
+  "printf": {
+    "prefix": "printf",
+    "body": "System.out.printf(\"$1\", $2);$0",
+    "description": "System.out.printf(format, args)"
+  }
+}
