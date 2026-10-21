@@ -18,7 +18,9 @@ if status is-interactive
     alias vi nvim
     alias vim nvim
     alias view "nvim -R"
-    alias vimdiff "nvim -d"  
+    alias vimdiff "nvim -d"
+    alias icat "kitten icat"
+    alias ktheme "kitten theme"
 
     #--- DAILY ALIAS ---#
     function cat -d "Alias to bat --pager never --style plain $args"

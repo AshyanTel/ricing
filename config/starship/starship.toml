@@ -46,7 +46,7 @@ lang_maven = '1'
 lang_nodejs = '2'
 lang_ocaml = '11'
 lang_ruby = '1'
-lang_rust = '11'
+lang_rust = '#fab387'
 lang_scala = '1'
 lang_python = '2'
 

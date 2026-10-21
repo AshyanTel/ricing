@@ -37,7 +37,6 @@ in
         pkgs.kdePackages.qtstyleplugin-kvantum
         pkgs.catppuccin-kvantum
 
-        pkgs.neovim
         pkgs.tree-sitter
         pkgs.prettier
         pkgs.markdownlint-cli2
@@ -48,14 +47,30 @@ in
         pkgs.clang-tools
         pkgs.rust-analyzer
         pkgs.nixd
+        pkgs.bash-language-server
+        pkgs.shellcheck
+        pkgs.fish-lsp
         pkgs.fzf
         pkgs.ripgrep
         pkgs.nodejs
         pkgs.cargo
         pkgs.rustc
-        pkgs.python3
-        pkgs.python3Packages.pylatexenc
-
+        
+        (pkgs.python3.withPackages (ps: with ps; [
+          pynvim
+          jupyter-client
+          ipykernel
+          pylatexenc
+          matplotlib
+          numpy
+          scipy
+          scikit-image
+          imageio
+          jupytext
+        ]))        
+        pkgs.pyright
+        pkgs.imagemagick
+        pkgs.luajitPackages.magick
 
         (pkgs.callPackage "${self}/pkgs/nmtui-go.nix" { })
         (pkgs.callPackage "${self}/pkgs/ankama-launcher.nix" { })
@@ -147,6 +162,9 @@ in
           set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
           set -g default-terminal "tmux-256color"
           set -as terminal-features ",*:RGB"
+          set -g allow-passthrough on 
+          unbind -T copy-mode MouseDragEnd1Pane
+          bind -T copy-mode MouseDragEnd1Pane send -X copy-selection-no-clear
           '';
       };
       yazi = {
@@ -178,6 +196,22 @@ in
                   type = ui.Border.PLAIN,
               }
           '';
+      };
+      neovim = {
+        enable = true;
+        withPython3 = true;
+        extraPython3Packages = ps: with ps; [
+          pynvim
+          jupyter-client
+          ipykernel
+          pylatexenc
+          matplotlib
+          imageio
+          scipy
+          scikit-image
+          numpy
+        ];
+        sideloadInitLua = true;
       };
     };
 

@@ -48,3 +48,32 @@ local function outline()
     end)
 end
 vim.keymap.set("n", "<leader>mo", outline, { desc = "Outline (markdown)" })
+vim.keymap.set("v", "<leader>jv", ":<C-u>MoltenEvaluateVisual<CR>gv", { silent = true })
+
+local function run_cell()
+  local cur, last = vim.fn.line("."), vim.fn.line("$")
+  local s = cur
+  while s >= 1 and not vim.fn.getline(s):match("^# %%") do s = s - 1 end
+  local e = cur + 1
+  while e <= last and not vim.fn.getline(e):match("^# %%") do e = e + 1 end
+  vim.fn.setpos("'<", { 0, s + 1, 1, 0 })
+  vim.fn.setpos("'>", { 0, e - 1, 1, 0 })
+  vim.cmd("MoltenEvaluateVisual")
+end
+vim.keymap.set("n", "<leader>jr", run_cell, { desc = "Run cell" })
+
+local function sync_notebook()
+  vim.cmd("write")
+  local file = vim.fn.expand("%:p")
+  vim.system({ "jupytext", "--sync", file }, { text = true }, function(res)
+    vim.schedule(function()
+      if res.code == 0 then
+        vim.notify("jupytext: synchronisé")
+      else
+        vim.notify("jupytext: " .. (res.stderr or "erreur"), vim.log.levels.ERROR)
+      end
+    end)
+  end)
+end
+
+vim.keymap.set("n", "<leader>js", sync_notebook, { desc = "Sync notebook" })
