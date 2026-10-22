@@ -8,9 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin,...}@inputs: {
+  outputs = { self, nixpkgs, home-manager, catppuccin, lanzaboote, ...}@inputs: {
     nixosConfigurations = {
       sunshine = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -33,9 +37,26 @@
           }
         ];
       };
-      raindrops = nixpkgs.lib.nixosSystem {
+      
+      moonlight = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [];
+        modules = [ 
+          ./hosts/moonlight/configuration.nix
+          lanzaboote.nixosModules.lanzaboote 
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs self; };
+
+            home-manager.users.ash = {
+              imports = [
+                catppuccin.homeModules.catppuccin
+                ./home.nix
+              ];
+            };
+          }
+        ];
       };
     };
   };

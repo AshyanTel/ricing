@@ -19,6 +19,11 @@ if status is-interactive
   alias view "nvim -R"
   alias vimdiff "nvim -d"  
 
+  function reboot-win
+    sudo efibootmgr --bootnext 0000
+    reboot
+  end
+
   #--- DAILY ALIAS ---#
   function cat -d "Alias to bat --pager never --style plain $args"
     bat --pager never --style plain --theme "Catppuccin Mocha" $argv

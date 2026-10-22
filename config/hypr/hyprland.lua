@@ -50,10 +50,6 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("GDK_SCALE", "2")
-hl.env("QT_SCALE_FACTOR", "1")
-hl.env("GDK_DPI_SCALE", "1")
-
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "20")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
@@ -163,6 +159,12 @@ hl.config({
   },
 })
 
+hl.config({
+  decoration = {
+    screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/saturation.frag"
+  }
+})
+
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
   master = {
@@ -194,8 +196,8 @@ hl.config({
 
 hl.config({
   input = {
-    kb_layout = "fr",
-    kb_variant = "us",
+    kb_layout = "us",
+    kb_variant = "",
     kb_model = "",
     kb_options = "",
     kb_rules = "",

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -186,7 +186,7 @@
     isNormalUser = true;
     description = "ash";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
+    packages = [
     ];
     shell = pkgs.fish;
   };
@@ -200,6 +200,11 @@
   # $ nix search wget
   environment = {
     etc."greetd/wallpaper.png".source = ../../config/wallpapers/teto.png;
+    sessionVariables = {
+      GDK_SCALE = "2";
+      QT_SCALE = "1";
+      GDK_DPI_SCALE = "1";
+    };
     systemPackages = with pkgs; [
       fprintd
       brightnessctl
