@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "small"
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "os",
+      "key": "\u001b[38;2;30;30;46;48;2;203;166;247m\ue0b0 operating système\u001b[0;38;2;203;166;247m\ue0b0\u001b[0m",
+      "format": "{name}"
+    },
+    {
+      "type": "kernel",
+      "key": "\u001b[38;2;30;30;46;48;2;203;166;247m\ue0b0 KRN  \u001b[0;38;2;203;166;247m\ue0b0\u001b[0m",
+      "format": "{release}"
+    },
+    {
+      "type": "shell",
+      "key": "\u001b[38;2;30;30;46;48;2;203;166;247m\ue0b0 SH   \u001b[0;38;2;203;166;247m\ue0b0\u001b[0m",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "terminal",
+      "key": "\u001b[38;2;30;30;46;48;2;203;166;247m\ue0b0 TERM \u001b[0;38;2;203;166;247m\ue0b0\u001b[0m",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "uptime",
+      "key": "\u001b[38;2;30;30;46;48;2;203;166;247m\ue0b0 UP   \u001b[0;38;2;203;166;247m\ue0b0\u001b[0m"
+    }
+
+  ]
+}

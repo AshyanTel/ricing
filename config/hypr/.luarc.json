@@ -1,0 +1,8 @@
+{
+  "workspace": {
+    "library": ["~/.local/share/hyprland"]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

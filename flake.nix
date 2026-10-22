@@ -12,6 +12,10 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-src = {
+      url = "github:hyprwm/Hyprland";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, lanzaboote, ...}@inputs: {

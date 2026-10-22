@@ -1,157 +1,105 @@
-add_newline = false
+add_newline = true
 follow_symlinks = true
 
 format = """
-$username\
-$hostname\
 $shell\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
+($username$hostname)\
+[ ](bg:accent)\
+[\ue0b0](fg:mauve bg:mantle)\
+[\ue0d7](fg:blue bg:mantle)\
 $directory\
-$vcsh\
-$fossil_branch\
-$fossil_metrics\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$hg_state\
-$pijul_channel\
-$docker_context\
-$package\
-$c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$fortran\
-$gleam\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$quarto\
-$raku\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$solidity\
-$swift\
-$terraform\
-$typst\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$nats\
-$direnv\
-$env_var\
-$mise\
-$crystal\
-$custom\
-$sudo\
-$cmd_duration\
+[\ue0b0](fg:blue)\
+([\ue0d7](fg:surface0)$vcs$docker_context$package$c$cmake$java$scala$kotlin$maven$gradle$lua$nodejs$ocaml$python$ruby$rust$nix_shell$direnv$sudo[\ue0b0 ](fg:surface0))\
 $fill\
-$jobs\
-$battery\
-$time\
-$status\
-$os\
-$container\
-$netns\
+([\ue0b2](fg:surface0)$cmd_duration$jobs$battery$container[\u2588](fg:surface0))\
 $line_break\
 $character"""
 
-[fill]
-symbol = ' '
+palette = 'mocha'
 
-[[battery.display]]
-threshold = 15
-style = 'bold bright-red blink'
+[palettes.mocha]
+#--- Mocha.
+accent   = '#cba6f7' 
+base     = '#1e1e2e'
+surface0 = '#313244'
+surface1 = '#45475a'
+overlay0 = '#6c7086'
+mantle   = '#181825' 
+text     = '#cdd6f4'
+mauve    = '#cba6f7'
+blue     = '#89b4fa'
+sapphire = '#74c7ec'
+teal     = '#94e2d5'
+green    = '#a6e3a1'
+yellow   = '#f9e2af'
+peach    = '#fab387'
+maroon   = '#eba0ac'
+red      = '#f38ba8'
+lavender = '#b4befe'
+#--- Langs colors.
+lang_c = '4'
+lang_gradle = '6'
+lang_java = '9'
+lang_kotlin = '5'
+lang_lua = '12'
+lang_maven = '1'
+lang_nodejs = '2'
+lang_ocaml = '11'
+lang_ruby = '1'
+lang_rust = '#fab387'
+lang_scala = '1'
+lang_python = '2'
 
 
-[os]
-disabled = false
-
-[os.symbols]
-Arch = '󰣇 '
-Debian = ' '
-Ubuntu = ' '
-NixOS = '󱄅 '
-
-[nix_shell]
-symbol = '󱄅 '
-
-
-[time]
-disabled = false
-format = '[  $time ]($style) '
-time_format = '%T'
-time_range = '00:00:00-23:59:59'
-style = 'blue bold'
-
-[character]
-success_symbol = '[\$](bold bright-green)'
-error_symbol = '[#](bold bright-red)'
+#--- Accent.
+[shell]
+format = '[ $indicator]($style)'
+style = 'fg:base bg:accent bold'
+bash_indicator = 'bash'
+zsh_indicator = 'zsh'
+fish_indicator = 'fish'
+disabled = false 
 
 [username]
-style_user = 'bright-red bold'
-style_root = 'bright-yellow blink bold'
-format = '[$user]($style)'
+format = "[ \ue0b1 ](fg:surface1 bg:accent)[$user]($style)"
+style_user = 'fg:base bg:accent bold'
+style_root = 'fg:red bg:mauve blink bold'
 disabled = false
 show_always = false
 
-[directory]
-format = 'in(white) [$path]($style)[$read_only]($read_only_style) '
-truncation_symbol = '.../'
+[hostname]
+format = '[@$hostname]($style)'
+style = 'fg:base bg:accent bold'
+ssh_only = true
 
+#--- Path.
+[directory]
+format = '[ $path ]($style)([$read_only ]($read_only_style))'
+style = 'fg:base bg:blue bold'
+read_only_style = 'fg:base bg:blue'
+truncation_symbol = '../'
+read_only = ' '
+
+#--- Git.
 [git_branch]
-style = 'green bold'
-symbol = ' '
+format = "[ $symbol$branch(:$remote_branch)]($style)"
+style = 'fg:green bg:surface0 bold'
+symbol = ' '
 
 [git_commit]
+format = "[ $hash$tag]($style)"
+style = 'dimmed green bg:surface0'
+tag_symbol = ' 󰓹 '
 only_detached = false
 tag_disabled = false
-style = 'green dimmed'
-tag_symbol = ' 󰓹 '
+
+[git_metrics]
+format = "([ +$added](fg:green bg:surface0))([ -$deleted](fg:red bg:surface0))"
+disabled = false
 
 [git_state]
+format = "[ $state( $progress_current/$progress_total)]($style)"
+style = 'fg:yellow bg:surface0 blink'
 rebase = '  Rebasing '
 merge = '  Merging '
 revert = ' 󰹿 Reverting '
@@ -159,12 +107,11 @@ cherry_pick = '  Cherry Picking '
 bisect = ' 󰃤 Bisecting '
 am = ' 󰶋  Applying Mailbox '
 am_or_rebase = '  /󰶋  '
-style = 'bright-yellow blink'
-
-[git_metrics]
 disabled = false
 
 [git_status]
+format = "([ $all_status$ahead_behin]($style))"
+style = 'fg:yellow bg:surface0 bold'
 conflicted = '󰢪 '
 ahead = ' ${count}'
 behind = ' ${count}'
@@ -177,30 +124,143 @@ staged = '󰝒 '
 renamed = '󰪹 '
 deleted = ' '
 typechanged = '󱁹 '
-style = 'bold bright-yellow'
-
-[hostname]
-style = 'red bold'
-format = '[@](blue bold)[$hostname]($style) '
-ssh_only = true
-
-[shell]
-bash_indicator = 'bash'
-zsh_indicator = 'zsh'
-fish_indicator = 'fish'
-format = '[$indicator]($style) '
-style = 'blue bold'
 disabled = false
 
+[vcs]
+order = [ "git" ]
+
+#--- The zone.
+[docker_context]
+format = "[ \ue0b0](fg:overlay0 bg:surface0)[ $symbol$context]($style)"
+style = 'fg:sapphire bg:surface0'
+symbol = ' '
+
 [package]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol$version]($style)"
+version_format = "${raw}"
+style = 'fg:lavender bg:surface0'
 symbol = '󰏖 '
 
-[cmake]
-symbol = '󱗾 '
+[c]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_c bg:surface0 bold'
+symbol = ' '
 
-[gradle]
-symbol = '󰟆 '
+[cmake]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_cmake bg:surface0 bold'
+symbol = ' '
+
+[kotlin]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_kotlin bg:surface0 bold'
+symbol = ' '
 
 [java]
-style = 'red bold'
-symbol = ' '
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_java bg:surface0 bold'
+symbol = ' '
+
+[scala]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_scala bg:surface0 bold'
+symbol = ' '
+
+[maven]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_maven bg:surface0 bold'
+symbol = ' '
+
+[gradle]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_gradle bg:surface0 bold'
+symbol = ' '
+
+[lua]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_lua bg:surface0 bold'
+symbol = ' '
+
+[nodejs]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_nodejs bg:surface0 bold'
+symbol = ' '
+
+[ocaml]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_ocaml bg:surface0 bold'
+symbol = ' '
+
+[python]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_python bg:surface0 bold'
+symbol = ' '
+
+[ruby]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_ruby bg:surface0 bold'
+symbol = ' '
+
+[rust]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol($version)]($style)"
+version_format = "${raw}"
+style = 'fg:lang_rust bg:surface0 bold'
+symbol = ' '
+
+[nix_shell]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol$state( \\($name)\\)]($style)"
+style = 'fg:sapphire bg:surface0 bold'
+symbol = '󱄅 '
+
+[direnv]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol$loaded/$allowed]($style)"
+style = 'fg:yellow bg:surface0'
+disabled = false
+
+[sudo]
+format = "[ \ue0b1](fg:overlay0 bg:surface0)[ $symbol$loaded/$allowed]($style)"
+style = 'fg:yellow bg:surface0'
+symbol = ' '
+disabled = false
+
+#--- Right.
+[fill]
+symbol = ' '
+
+[cmd_duration]
+format = '[ $duration ](fg:yellow bg:surface0)'
+show_notifications = false 
+
+[jobs]
+format = "[ \ue0b3](fg:overlay0 bg:surface0)[ $symbol$number ](fg:teal bg:surface0)"
+symbol = ' '
+
+[battery]
+format = "[ \ue0b3 ](fg:overlay0 bg:surface0)[ $symbol$percentage ]($style)"
+
+[[battery.display]]
+threshold = 10
+style = 'fg:red bg:surface0 bold blink'
+
+[container]
+format = "[ \ue0b3](fg:overlay0 bg:surface0)[ $symbol$name ]($style)"
+style = 'fg:blue bg:surface0 dimmed'
+symbol = ' '
+
+#--- New line.
+[character]
+format = "[\u2588](fg:surface0)$symbol[ ](bg:surface0)[\ue0b0](fg:surface0 bg:mantle)[\ue0b0 ](fg:mantle)"
+success_symbol = '[\$](bold bright-green bg:surface0)'
+error_symbol = '[#](bold bright-red bg:surface0)'

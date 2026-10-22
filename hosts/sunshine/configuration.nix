@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports =
@@ -199,7 +199,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    etc."greetd/wallpaper.png".source = ../../config/wallpapers/teto.png;
+    etc."greetd/wallpaper.png".source = config.home-manager.users.ash.wallpaper;
     sessionVariables = {
       GDK_SCALE = "2";
       QT_SCALE = "1";

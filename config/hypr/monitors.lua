@@ -37,7 +37,7 @@ hl.monitor({
     mode = "1920x1080@60",
     position = "auto-center-up",
     scale = 1,
-    disabled = true
+    -- disabled = true
 })
 hl.monitor({
     output = "DP-8",

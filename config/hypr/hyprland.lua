@@ -14,19 +14,17 @@ local calcM = "rofi -show calc"
 local winM = "rofi -show window -show-icons"
 -- Coding, devs
 local terminal = "kitty"
-local text = terminal .. " vim"
-local ide = "codium"
+
 -- General apps
 local fileManager = "yazi"
 local browser = "firefox"
 local discordClient = "vesktop"
-local musicPlayer = "tidal-hifi"
 -- Utilities
 local screenshotTool = "hyprshot"
 local idler = "hypridle"
 local lockScreen = "hyprlock"
-local bar = "quickshell"
-local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.config/wallpapers/teto.jpg ; mpvpaper -pfo \"no-audio loop panscan=1.0\" HDMI-A-1 ~/.config/wallpaper/steam-autumn-sale-2024-moewalls-com.mp4"
+local bar = "waybar"
+local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.config/wallpaper.png"
 
 -------------------
 ---- AUTOSTART ----
@@ -38,10 +36,10 @@ local wallpaperSetter = "mpvpaper -pfo \"no-audio loop panscan=1.0\" '*' ~/.conf
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  --  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
-  hl.exec_cmd(wallpaperSetter)
-  hl.exec_cmd(idler)
-  hl.exec_cmd(bar)
+--  hl.exec_cmd(ide) -- While Editing,) can be nice to comeback
+hl.exec_cmd(wallpaperSetter)
+hl.exec_cmd(idler)
+hl.exec_cmd(bar)
 end)
 
 -------------------------------
@@ -80,17 +78,17 @@ hl.env("HYPRCURSOR_SIZE", "20")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   general = {
-    gaps_in = 2,
-    gaps_out = 10,
+    gaps_in = 6,
+    gaps_out = 8,
 
     border_size = 2,
 
     col = {
       active_border = {
-        colors = { "rgba(e24955ff)", "rgba(e96369ff)" },
+        colors = { "rgba(cba6f7ff)", "rgba(b4befedd)" },
         angle = 90,
       },
-      inactive_border = "rgba(111111aa)",
+      inactive_border = "rgba(313244ff)",
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -99,11 +97,11 @@ hl.config({
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = false,
 
-    layout = "dwindle",
+    layout = "scrolling",
   },
 
   decoration = {
-    rounding = 10,
+    rounding = 0,
     rounding_power = 2,
 
     -- Change transparency of focused and unfocused windows
@@ -114,7 +112,7 @@ hl.config({
       enabled = true,
       range = 4,
       render_power = 3,
-      color = 0xee1a1a1a,
+      color = "rgba(11111bff)",
     },
 
     blur = {
@@ -232,7 +230,7 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Layout cycling function
-local current_layout = "dwindle"
+local current_layout = "scrolling"
 local function cycle_layout()
   if current_layout == "dwindle" then
     current_layout = "master"
@@ -262,7 +260,7 @@ end
 
 -- Example binds, see https:y//wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(
   mainMod .. " + M",
@@ -289,7 +287,9 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(sshM))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(winM))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(calcM))
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(emojiM))
-
+hl.bind(mainMod .. " + N", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 -- Screenshot
 hl.bind("PRINT", hl.dsp.exec_cmd(screenshotTool .. " -z --clipboard-only -m output"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd(screenshotTool .. " -z --clipboard-only -m region"))
@@ -418,7 +418,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
 
 -- Example window rules that are useful
 
-local suppressMaximizeRule = hl.window_rule({
+hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
   name = "suppress-maximize-events",
   match = {

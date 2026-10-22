@@ -7,6 +7,8 @@
     vscode
     rust-analyzer
     jetbrains.idea
-    jdk
+    jdk25
+    (maven.override { jdk_headless = jdk25_headless; })
+    gradle
   ];
 }
