@@ -15,6 +15,11 @@ if status is-interactive
     set -x PATH $PATH $HOME/scripts
     set -gx EDITOR nvim  
 
+    function reboot-win
+        sudo efibootmgr --bootnext 0000
+        reboot
+    end
+
     alias vi nvim
     alias vim nvim
     alias view "nvim -R"
