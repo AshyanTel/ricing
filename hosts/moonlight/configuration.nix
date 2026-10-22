@@ -53,7 +53,7 @@
   networking = {
     hostName = "moonlight";  
     networkmanager.enable = true;
-    wakeOnLan.enable = true;
+    interfaces.enp42s0.wakeOnLan.enable = true;
   };
 
   services = {
@@ -136,7 +136,7 @@
     dconf.enable = true;
     obs-studio = {
       enable = true;
-      enableVirtualCamera = true;
+      enableVirtualCamera = false;
       plugins = with pkgs.obs-studio-plugins; [
         obs-backgroundremoval
       ];
