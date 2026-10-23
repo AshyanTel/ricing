@@ -16,7 +16,7 @@ local winM = "rofi -show window -show-icons"
 local terminal = "kitty"
 
 -- General apps
-local fileManager = "yazi"
+local fileManager = "kitty yazi"
 local browser = "firefox"
 local discordClient = "vesktop"
 -- Utilities

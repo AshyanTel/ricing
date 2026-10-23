@@ -9,7 +9,7 @@ let
 
   src = fetchurl {
     url = "https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup-x86_64.AppImage";
-    sha256 = "sha256-6q0kAFXtrnud8rvxN6o6mIiwklzjZYAopf1MlS3ODbU=";
+    sha256 = "sha256-qb0lUPSs3uTMxgoE2Rt9Cxgexfmv10BLroI8JmXe5mA=";
   };
 
   appimageContents = appimageTools.extract { inherit pname version src; };
@@ -62,7 +62,7 @@ appimageTools.wrapType2 {
     fi
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Launcher officiel Ankama (Dofus, Wakfu, ...) packagé depuis l'AppImage";
     homepage = "https://www.ankama.com";
     platforms = [ "x86_64-linux" ];

@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     prismlauncher
     moonlight-qt
+    bolt-launcher
   ];
   programs.steam = {
     enable = true;
